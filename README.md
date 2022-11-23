@@ -22,7 +22,7 @@ This is an app to connect people who want to help those in need by donating food
 - **Delete Profile:** As a logged in user I want to be able to delete my account.
 - **Create Baskets:** As a logged in user (donor) I can access the create basket page so that I can create a basket or used a predefined one.
 - **Choose Baskets:** As a logged in user (needful) I can access the choose basket/ unitary product page so that I can choose a basket or a product that I need.
-- **Select Market:** As a logged in user (needful) I can access the choose Market page so that I can choose where I can pick up the supplies that I need.
+- **Select Intermediary:** As a logged in user (needful) I can access the choose Intermediary page so that I can choose where I can pick up the supplies that I need.
 
 # Client / Frontend
 
@@ -33,7 +33,8 @@ This is an app to connect people who want to help those in need by donating food
 | `/login`         | LoginPage    | anon only `<AnonRoute>`    | Login form, navigates to home page after login.       |
 | `/signup`        | SignupPage   | anon only `<AnonRoute>`    | Signup form, navigates to home page after signup.     |
 | `/`              | HomePage     | public `<Route>`           | Home page.                                            |
-| `/home`          | UserHomePage | user only `<PrivateRoute>` | Home page depending on the type of profile.           |
+| `/home/donor`          | DonorHomePage | user only `<PrivateRoute>` | Home page depending on the type of profile.           |
+| `/home/user`          | UserHomePage | user only `<PrivateRoute>` | Home page depending on the type of profile.           |
 | `/profile`       | Profile      | user only `<PrivateRoute>` | User (donor or needful) profile for the current user. |
 | `/profile/edit`  | EditProfile  | user only `<PrivateRoute>` | Edit user profile form.                               |
 | `/basket/create` | CreateBasket | user only `<PrivateRoute>` | Create new basket form.                               |
@@ -68,8 +69,11 @@ Pages:
 Components:
 
 - Button
+
 - Footer
+
 - Navbar
+
 - BasketCard
 
 <br>
@@ -87,11 +91,9 @@ Components:
   password: { type: String, required: true },
   phoneNumber: { type: Number, required: true },
   email: { type: String, required: true, unique: true },
-
-	userType: { type: },
-
-	givenBaskets: [{ type: Schema.Types.ObjectId, ref: 'Basket' }],
-	givenUnits: [{ type: Schema.Types.ObjectId, ref: 'Basket' }],
+  userType: { type: },
+  givenBaskets: [{ type: Schema.Types.ObjectId, ref: 'Basket' }],
+  givenUnits: [{ type: Schema.Types.ObjectId, ref: 'Basket' }],
   receivedBaskets: [{ type: Schema.Types.ObjectId, ref: 'Basket' }],
   receivedUnits: [{ type: Schema.Types.ObjectId, ref: 'Basket' }]
 }
@@ -102,7 +104,7 @@ Components:
 ```javascript
  {
    basketType: { type: },
-   market: [{ type: Schema.Types.ObjectId, ref: 'Market' }],
+   intermediary: [{ type: Schema.Types.ObjectId, ref: 'Intermediary' }],
    products: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
    received: { type: Boolean},
    price: { type: Number},
@@ -124,13 +126,15 @@ Components:
 }
 ```
 
-**Market model**
+**Intermediary model**
 
 ```javascript
 {
   name: { type: String },
   adress: { type: String },
-  brand: { type: String }
+  brand: { type: String },
+  description: {},
+  basket: [{ type: Schema.Types.ObjectId, ref: 'Basket' }]
 }
 ```
 
@@ -144,12 +148,11 @@ Components:
 | POST        | `/auth/login`          | {email, password}         | 200            | 401          | Checks if fields not empty (422), if user exists (404), and if password matches (404), then stores user in session              |
 | POST        | `/auth/logout`         |                              | 204            | 400          | Logs out the user                                                                                                               |
 | GET         | `/api/profile/:id`     |                              |                |              | show specific profile                                                                                                            |
-| PUT         | `/api/profile/:id`     | { firstName, lastName, phoneNumber  }                | 201            | 400          | edit profile                                                                                                                     |
+| PUT         | `/api/profile/:id`     | { firstName, lastName, phoneNumber }                | 201            | 400          | edit profile                                                                                                                     |
 | DELETE      | `/api/profile/:id`     |                              | 200            | 400          | delete profile                                                                                                                   |
-| POST         | `/api/basket/create`           |                              | 201            | 400          | create new basket                                                                                                                      |
-| POST         | `/api/basket/add`           |                              | 201            | 400          | add predefined basket                                                                                                                      |
-| POST         | `/api/basket/choose`           |                              | 201            | 400          | choose basket                                                                                                                      |
-| POST         | `/api/basket/unit`           |                              | 201            | 400          | choose product unit(s)                                                                                                                 
+| PUT         | `/api/basket/`           |                              | 201            | 400          | create new basket                                                                                                                      |
+| DELETE         | `/api/basket/:id`           |                              | 201            | 400          | delete basket                                                                                                                      |
+| GET         | `/api/market/:id/baskets`           |                              | 201            | 400          | choose basket                                                                                                                      |                                                                                 
 <br>
 
 ## API's
