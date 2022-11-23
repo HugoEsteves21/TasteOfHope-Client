@@ -13,46 +13,35 @@ This is an app to connect people who want to help those in need by donating food
 ## User Stories
 
 -  **404:** As a user I get to see a 404 page with a feedback message if I try to reach a page that does not exist so that I know it's my fault.
--  **Signup:** As an anonymous user I can sign up on the platform so that I can start creating and managing tournaments.
--  **Login:** As a user I can login to the platform so that I can access my profile and start creating and managing tournaments.
+-  **Sign up:** As an anonymous user I can sign up on the platform so that I can start helping others or be helped.
+-  **Login:** As a user I can login to the platform so that I can access my profile and start creating baskets or choose which basket I want.
 -  **Logout:** As a logged in user I can logout from the platform so no one else can use it.
--  **Profile Page**: As a logged in user I can visit my profile page so that I can access the edit page and see the list of tournaments I have created.
--  **Add Tournaments:** As a logged in user I can access the add tournament page so that I can create a new tournament.
--  **Edit Tournaments:** As a logged in user I can access the edit tournament page so that I can edit the tournament I created.
--  **Add Players:** As a user I can add players to a tournament.
--  **View Tournament Table:** As a user I want to see the tournament details, players list and the time table.
--  **View Ranks:** As a user I can see the rankings list for the tournament.
+-  **Home:** As a logged in user I want to access the home page.
+-  **Profile Page**: As a logged in user I can visit my profile page so that I can access the edit page and see the list of baskets I have created or used depending on my profile (donor vs needful).
+-  **Edit Profile:** As a logged in user I can access the edit profile page so that I can edit the information about my account.
+-  **Delete Profile:** As a logged in user I want to be able to delete my account.
+-  **Create Baskets:** As a logged in user (donor) I can access the create basket page so that I can create a basket or used a predefined one.
+-  **Choose Baskets:** As a logged in user (needful) I can access the choose basket/ unitary product page so that I can choose a basket or a product that I need.
+-  **Select Market:** As a logged in user (needful) I can access the choose Market page so that I can choose where I can pick up the supplies that I need.
 
-
-
-
-## Backlog
-
-- Add weather widget
-- lottie interactions
-- users can bet
-- add geolocation to events when creating
-
-
-<br>
 
 
 # Client / Frontend
 
 ## React Router Routes (React App)
 
-| Path                         | Component            | Permissions                | Behavior                                                  |
+| Path                         | Pages            | Permissions                | Behavior                                                  |
 | ---------------------------- | -------------------- | -------------------------- | --------------------------------------------------------- |
 | `/login`                     | LoginPage            | anon only `<AnonRoute>`    | Login form, navigates to home page after login.           |
 | `/signup`                    | SignupPage           | anon only  `<AnonRoute>`   | Signup form, navigates to home page after signup.         |
-| `/`                          | HomePage             | public `<Route>`           | Home page.                                                |
-| `/user-profile`              | ProfilePage          | user only `<PrivateRoute>` | User and player profile for the current user.             |
-| `/user-profile/edit`         | EditProfilePage      | user only `<PrivateRoute>` | Edit user profile form.                                   |
-| `/tournaments/add`           | CreateTournamentPage | user only `<PrivateRoute>` | Create new tournament form.                               |
-| `/tournaments`               | TournamentListPage   | user only `<PrivateRoute>` | Tournaments list.                                         |
-| `/tournaments/:tournamentId` | TournamentDetailPage | user only `<PrivateRoute>` | Tournament details. Shows players list and other details. |
-| `/tournament/players/:id`    | PlayerDetailsPage    | user only `<PrivateRoute>` | Single player details.                                    |
-| `/rankings/:tournamentId`    | RankingsPage         | user only `<PrivateRoute>` | Tournament rankings list.                                 |
+| `/`                          | HomePage             | public `<Route>`           | Home  page.                                                |
+| `/home`                          | UserHomePage             | user only `<PrivateRoute>`           | Home page depending on the type of profile.                                                |
+| `/profile`              | Profile          | user only `<PrivateRoute>` | User (donor or needful) profile for the current user.             |
+| `/profile/edit`         | EditProfile      | user only `<PrivateRoute>` | Edit user profile form.                                   |
+| `/basket/create`           | CreateBasket | user only `<PrivateRoute>` | Create new basket form.                               |
+| `/basket/add`               | AddBasket   | user only `<PrivateRoute>` | Add new predefined basket form.                                         |
+| `/basket/choose` | ChooseBasket | user only `<PrivateRoute>` | Choose new basket form. |
+| `/basket/unit`    | ChooseUnit    | user only `<PrivateRoute>` | Choose new unit form.                                    |
 
 
 
@@ -67,19 +56,19 @@ Pages:
 
 - HomePage
 
-- ProfilePage
+- UserHomePage
 
-- EditProfilePage
+- Profile
 
-- CreateTournamentPage
+- EditProfile
 
-- TournamentListPage
+- CreateBasket
 
-- TournamentDetailsPage
+- AddBasket
 
-- PlayerDetailsPage
+- ChooseBasket
 
-- RankingsPage
+- ChooseUnit
 
   
 
