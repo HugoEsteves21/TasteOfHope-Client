@@ -117,7 +117,7 @@ Components:
 
 ```javascript
 {
-  quantity: { type: Number, required: true },
+  name: { type: String, required: true },
   packageSize: { type: String, required: true },
   price: { type: Number, required: true },
   expirationDate: { type: Date },
