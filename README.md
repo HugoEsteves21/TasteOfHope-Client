@@ -103,13 +103,13 @@ Components:
 
 ```javascript
  {
-   basketType: { type: },
-   intermediary: [{ type: Schema.Types.ObjectId, ref: 'Intermediary' }],
-   products: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
-   received: { type: Boolean},
-   price: { type: Number},
-   giver: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-   receiver: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  basketType: { type: },
+  intermediary: [{ type: Schema.Types.ObjectId, ref: 'Intermediary' }],
+  products: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
+  received: { type: Boolean},
+  price: { type: Number},
+  giver: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  receiver: [{ type: Schema.Types.ObjectId, ref: 'User' }]
  }
 ```
 
