@@ -1,26 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../images/logo-ATOH-removebg-preview.png';
+import '../navbar.css';
 
 function NavBar() {
-  return (
-    <div>
-      <div className="topnav" id="myTopnav">
-        <Link to="/home" className="active">
-          Home
-        </Link>
-        <Link to="#news">News</Link>
-        <Link to="#contact">Contact</Link>
-        <Link to="#about">About</Link>
-        <Link to="#" className="icon" onclick="myFunction()">
-          <i className="fa fa-bars"></i>
-        </Link>
-      </div>
+  const [active, setActive] = useState('nav_menu');
+  const [icon, setIcon] = useState('nav_toggler');
+  const navToggle = () => {
+    if (active === 'nav_menu') {
+      setActive('nav_menu nav_active');
+    } else setActive('nav_menu');
 
-      <div>
-        <h2>Responsive Topnav Example</h2>
-        <p>Resize the browser window to see how it works.</p>
+    // Icon Toggler
+    if (icon === 'nav_toggler') {
+      setIcon('nav_toggler toggle');
+    } else setIcon('nav_toggler');
+  };
+
+  return (
+    <nav className="nav">
+      <Link to="/" className="brand">
+        {/* <img src={logo} alt="" /> */}
+        A Taste <br /> Of Hope
+      </Link>
+      <ul className={active}>
+        <li className="nav_item">
+          <Link to="/about-us" className="nav_link">
+            About Us
+          </Link>
+        </li>
+        <li className="nav_item">
+          <Link to="/contacts" className="nav_link">
+            Contacts
+          </Link>
+        </li>
+        <li className="nav_item">
+          <Link to="/contacts" className="nav_link">
+            <img src={logo} alt="" />
+          </Link>
+        </li>
+      </ul>
+      <div onClick={navToggle} className={icon}>
+        <div className="line1"></div>
+        <div className="line2"></div>
+        <div className="line3"></div>
       </div>
-    </div>
+    </nav>
   );
 }
 
