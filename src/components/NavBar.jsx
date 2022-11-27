@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../images/logo-ATOH-removebg-preview.png';
+import logo from '../images/logo-white.png';
 import '../navbar.css';
 
 function NavBar() {
@@ -20,8 +20,7 @@ function NavBar() {
   return (
     <nav className="nav">
       <Link to="/" className="brand">
-        {/* <img src={logo} alt="" /> */}
-        A Taste <br /> Of Hope
+        <img src={logo} alt="" />
       </Link>
       <ul className={active}>
         <li className="nav_item">
@@ -32,11 +31,6 @@ function NavBar() {
         <li className="nav_item">
           <Link to="/contacts" className="nav_link">
             Contacts
-          </Link>
-        </li>
-        <li className="nav_item">
-          <Link to="/contacts" className="nav_link">
-            <img src={logo} alt="" />
           </Link>
         </li>
       </ul>
