@@ -5,9 +5,9 @@ import '../navbar.css';
 function Footer() {
   return (
     <footer>
-      <div class="container">
-        <div class="row">
-          <div class="footer-bottom">
+      <div className="container">
+        <div className="row">
+          <div className="footer-bottom">
             © 2022 Copyright:
             <hr />
             <Link to="https://github.com/brunorocha20">Bruno Rocha</Link> &

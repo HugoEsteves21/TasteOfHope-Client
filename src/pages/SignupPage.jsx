@@ -8,9 +8,6 @@ function SignupPage() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  /* const [donor, setDonor] = useState("");
-  const [needful, setNeedful] = useState(""); */
-
   const [userType, setUserType] = useState('');
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -26,17 +23,10 @@ function SignupPage() {
   const handlePhoneNumber = (e) => {
     setPhoneNumber(e.target.value);
   };
-  /*  const handleDonor = (e) => {
-    setDonor(e.target.value);
-  };
-  const handleNeedful = (e) => {
-    setNeedful(e.target.value);
-  }; */
-
   const handleUserType = (e) => {
+    console.log(userType);
     setUserType(e.target.value);
   };
-
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -56,12 +46,13 @@ function SignupPage() {
     };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/auth/signup`, body)
+      .post(`${process.env.REACT_APP_API_URL}/signup`, body)
       .then(() => {
         navigate('/login');
       })
       .catch((err) => {
         setErrorMessage(err.response.data.errorMessage);
+        console.log(err);
       });
   };
 
@@ -99,43 +90,33 @@ function SignupPage() {
             onChange={handlePhoneNumber}
           />
 
-          {/*  <fieldset>
+          <fieldset>
             <div>
               <label htmlFor="userType">User Type*</label>
             </div>
 
             <div>
               <input
-                type="checkbox"
+                type="radio"
                 className="css-authinput"
                 label="Donor"
-                value={donor}
+                value="Donor"
                 name="userType"
-                onChange={handleDonor}
+                onClick={handleUserType}
               />
               <label htmlFor="donor">Donor</label>
-           
+
               <input
-                type="checkbox"
+                type="radio"
                 className="css-authinput"
                 label="Needful"
-                value={needful}
+                value="Needful"
                 name="userType"
-                onChange={handleNeedful}
+                onClick={handleUserType}
               />
               <label htmlFor="needful">Needful</label>
             </div>
-          </fieldset> */}
-
-          <label htmlFor="userType">User Type*</label>
-          <input
-            type="text"
-            placeholder="User type"
-            className="css-authinput"
-            value={userType}
-            name="userType"
-            onChange={handleUserType}
-          />
+          </fieldset>
 
           <label htmlFor="email">Email address*</label>
           <input

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../home.css';
-import bg from '../images/bg-userhomepage.jpg';
 
 function HomePage() {
   return (
