@@ -1,16 +1,18 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import "../auth.css";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import '../auth.css';
 
 function SignupPage() {
-  const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [donor, setDonor] = useState("");
-  const [needful, setNeedful] = useState("");
-  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  /* const [donor, setDonor] = useState("");
+  const [needful, setNeedful] = useState(""); */
+
+  const [userType, setUserType] = useState('');
+  const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -24,11 +26,15 @@ function SignupPage() {
   const handlePhoneNumber = (e) => {
     setPhoneNumber(e.target.value);
   };
-  const handleDonor = (e) => {
+  /*  const handleDonor = (e) => {
     setDonor(e.target.value);
   };
   const handleNeedful = (e) => {
     setNeedful(e.target.value);
+  }; */
+
+  const handleUserType = (e) => {
+    setUserType(e.target.value);
   };
 
   const handleEmail = (e) => {
@@ -44,8 +50,7 @@ function SignupPage() {
       firstName,
       lastName,
       email,
-      donor,
-      needful,
+      userType,
       phoneNumber,
       password,
     };
@@ -53,7 +58,7 @@ function SignupPage() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/auth/signup`, body)
       .then(() => {
-        navigate("/login");
+        navigate('/login');
       })
       .catch((err) => {
         setErrorMessage(err.response.data.errorMessage);
@@ -94,7 +99,7 @@ function SignupPage() {
             onChange={handlePhoneNumber}
           />
 
-          <fieldset>
+          {/*  <fieldset>
             <div>
               <label htmlFor="userType">User Type*</label>
             </div>
@@ -120,7 +125,17 @@ function SignupPage() {
               />
               <label htmlFor="needful">Needful</label>
             </div>
-          </fieldset>
+          </fieldset> */}
+
+          <label htmlFor="userType">User Type*</label>
+          <input
+            type="text"
+            placeholder="User type"
+            className="css-authinput"
+            value={userType}
+            name="userType"
+            onChange={handleUserType}
+          />
 
           <label htmlFor="email">Email address*</label>
           <input

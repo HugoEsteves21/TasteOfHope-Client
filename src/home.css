@@ -1,0 +1,41 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.log-sign {
+  padding-bottom: 90px;
+}
+
+.hp-intro {
+  padding: 20px;
+}
+
+.loginFormPhraseP2 {
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+
+.signupLinkBtn2 {
+  text-decoration: none;
+  color: rgb(17, 64, 26);
+  margin: 0;
+  border-bottom: 2px solid rgb(10, 84, 15);
+}
+
+.loginLinkBtn2 {
+  text-decoration: none;
+  color: rgb(17, 64, 26);
+  margin: 0;
+  border-bottom: 2px solid rgb(10, 84, 15);
+}
+
+.hp-background {
+  background-image: url('https://images.pexels.com/photos/7890010/pexels-photo-7890010.jpeg');
+  height: 75vh;
+  width: 100%;
+  background-size: cover;
+  background-position: bottom;
+}

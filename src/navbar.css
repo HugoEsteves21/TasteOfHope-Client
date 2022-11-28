@@ -29,7 +29,7 @@ a {
 .nav {
   display: flex;
   position: fixed;
-  width: 101%;
+  width: 100%;
   align-items: center;
   justify-content: space-around;
   height: 8vh;
