@@ -7,6 +7,9 @@ function SignupPage() {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [donor, setDonor] = useState('');
+  const [needful, setNeedful] = useState('');
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -18,6 +21,16 @@ function SignupPage() {
   const handleLastName = (e) => {
     setLastName(e.target.value);
   };
+  const handlePhoneNumber = (e) => {
+    setPhoneNumber(e.target.value);
+  };
+  const handleDonor = (e) => {
+    setDonor(e.target.value);
+  };
+  const handleNeedful = (e) => {
+    setNeedful(e.target.value);
+  };
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -27,7 +40,7 @@ function SignupPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = { firstName, lastName, email, password };
+    const body = { firstName, lastName, email, donor, needful, phoneNumber, password };
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/auth/signup`, body)
@@ -62,6 +75,34 @@ function SignupPage() {
             name="lastName"
             onChange={handleLastName}
           />
+
+          <label htmlFor="phoneNumber">Phone Number*</label>
+          <input
+            type="number"
+            placeholder="9********"
+            className="css-authinput"
+            value={phoneNumber}
+            name="phoneNumber"
+            onChange={handlePhoneNumber}
+          />
+
+          <label htmlFor="userType">User Type*</label>
+          <div>
+            <input
+              type="checkbox"
+              className="css-authinput"
+              label="Donor"
+              value={donor}
+              onChange={handleDonor}
+            />
+            <input
+              type="checkbox"
+              className="css-authinput"
+              label="Needful"
+              value={needful}
+              onChange={handleNeedful}
+            />
+          </div>
 
           <label htmlFor="email">Email address*</label>
           <input
