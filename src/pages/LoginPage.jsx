@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import axios from 'axios';
 import '../auth.css';
@@ -9,6 +9,7 @@ function LoginPage() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
   const navigate = useNavigate();
+  const { id } = useParams();
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
   const handleEmail = (e) => setEmail(e.target.value);
@@ -25,7 +26,8 @@ function LoginPage() {
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate('/home');
+        // não sabemos se temos acesso a este id aqui
+        navigate(`/home/${id}`);
       })
       .catch((err) => {
         setErrorMessage(err.response.data.errorMessage);

@@ -7,6 +7,7 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import CreateBasket from './pages/CreateBasket';
+import UserHomePage from './pages/UserHomePage';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        {/* perceber se precisamos deste id aqui */}
+        <Route path="/home/:id" element={<UserHomePage />} />
         <Route path="/:id/basket/choose" element={<ChooseBasket />} />
         <Route path="/basket/create" element={<CreateBasket />} />
       </Routes>
