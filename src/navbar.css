@@ -29,7 +29,7 @@ a {
 .nav {
   display: flex;
   position: fixed;
-  width: 101%;
+  width: 100%;
   align-items: center;
   justify-content: space-around;
   height: 8vh;
@@ -112,7 +112,7 @@ a:active {
 a,
 a:active,
 a:focus {
-  color: #333;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   transition-timing-function: ease-in-out;
   -ms-transition-timing-function: ease-in-out;

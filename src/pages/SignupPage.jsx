@@ -1,16 +1,15 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import "../auth.css";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import '../auth.css';
 
 function SignupPage() {
-  const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [donor, setDonor] = useState("");
-  const [needful, setNeedful] = useState("");
-  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [userType, setUserType] = useState('');
+  const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -24,13 +23,10 @@ function SignupPage() {
   const handlePhoneNumber = (e) => {
     setPhoneNumber(e.target.value);
   };
-  const handleDonor = (e) => {
-    setDonor(e.target.value);
+  const handleUserType = (e) => {
+    console.log(userType);
+    setUserType(e.target.value);
   };
-  const handleNeedful = (e) => {
-    setNeedful(e.target.value);
-  };
-
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -44,19 +40,19 @@ function SignupPage() {
       firstName,
       lastName,
       email,
-      donor,
-      needful,
+      userType,
       phoneNumber,
       password,
     };
 
     axios
-      .post(`${process.env.REACT_APP_API_URL}/auth/signup`, body)
+      .post(`${process.env.REACT_APP_API_URL}/signup`, body)
       .then(() => {
-        navigate("/login");
+        navigate('/login');
       })
       .catch((err) => {
         setErrorMessage(err.response.data.errorMessage);
+        console.log(err);
       });
   };
 
@@ -101,22 +97,22 @@ function SignupPage() {
 
             <div>
               <input
-                type="checkbox"
+                type="radio"
                 className="css-authinput"
                 label="Donor"
-                value={donor}
+                value="Donor"
                 name="userType"
-                onChange={handleDonor}
+                onClick={handleUserType}
               />
               <label htmlFor="donor">Donor</label>
-           
+
               <input
-                type="checkbox"
+                type="radio"
                 className="css-authinput"
                 label="Needful"
-                value={needful}
+                value="Needful"
                 name="userType"
-                onChange={handleNeedful}
+                onClick={handleUserType}
               />
               <label htmlFor="needful">Needful</label>
             </div>
