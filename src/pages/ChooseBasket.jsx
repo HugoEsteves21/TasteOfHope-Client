@@ -24,8 +24,8 @@ function ChooseBasket() {
         }
       );
 
-      setBaskets(response.data);
-      console.log(response.data);
+      setBaskets(response.data.basket);
+      console.log(response.data.basket);
     } catch (error) {
       console.log(error);
     }
@@ -79,7 +79,7 @@ function ChooseBasket() {
         return (
           <div key={basket._id}>
             <h3>Type of Basket: {basket.basketType}</h3>
-            <h4>Available in: {basket.market}</h4>
+            {/* <h4>Available in: {basket.market}</h4> */}
             <h4>Products inside:</h4>
             {basket.products.map((product) => (
               <li>

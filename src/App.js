@@ -6,6 +6,7 @@ import ChooseBasket from './pages/ChooseBasket';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
+import CreateBasket from './pages/CreateBasket';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/:id/basket/choose" element={<ChooseBasket />} />
+        <Route path="/basket/create" element={<CreateBasket />} />
       </Routes>
 
       <Footer />
