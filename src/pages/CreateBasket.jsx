@@ -9,13 +9,14 @@ function CreateBasket() {
 
   const handleType = (e) => setType(e.target.value);
   const handleMarket = (e) => setMarket(e.target.value);
-  const handleProducts = (e) => {
-    
+  const handlePrice = (e) => setPrice(e.target.value);
+  /* const handleProducts = (e) => {
     setProducts(e.target.value);
 
-    products.reduce
-  };
-  //const handlePrice =  (e) => setPrice(e.target.value);
+    let sumProducts = products.reduce((acc, val) => acc + val, 0);
+
+    setPrice(sumProducts);
+  }; */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,20 +35,26 @@ function CreateBasket() {
 
       setType("");
       setMarket("");
-      setProducts("");
+      //setProducts("");
       setPrice(0);
     } catch (error) {
       console.log(error);
     }
   };
-  
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="userType">What kind of help do you wish to give?</label>
 
-        <select name="basketType" id="basketType" autofocus required size='4' onChange={handleType}>
+        <select
+          name="basketType"
+          id="basketType"
+          autofocus
+          required
+          size="4"
+          onChange={handleType}
+        >
           <option value="S">S</option>
           <option value="M">M</option>
           <option value="L">L</option>
@@ -55,16 +62,30 @@ function CreateBasket() {
         </select>
 
         <label htmlFor="market">Where are you dropping your basket?</label>
-        <input type="text" name="market" value={market} onChange={handleMarket} />
-        
-        {products.map((product) => (
-          
+        <input
+          type="text"
+          name="market"
+          value={market}
+          onChange={handleMarket}
+        />
 
-        ))}
-        
-        
+        {/* {products.map((product) => (
+          <div>
+            <img src={product.imageUrl} alt="product choice" />
+            <input
+              type="radio"
+              label={product}
+              value={product}
+              name={product}
+              onClick={handleProducts}
+            />
+            <label htmlFor={product}>{product}</label>
+            <p>{product.packageSize}</p>
+            <p>{product.price}</p>
+          </div>
+        ))} */}
 
-        <label htmlFor="price" onChange={}>Price: {price}</label>
+        {/* <label htmlFor="price">Price:{price}</label> */}
 
         <button type="submit">I'm ready to help!</button>
       </form>
