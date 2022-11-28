@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import '../auth.css';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import "../auth.css";
 
 function SignupPage() {
-  const [password, setPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [donor, setDonor] = useState('');
-  const [needful, setNeedful] = useState('');
-  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [donor, setDonor] = useState("");
+  const [needful, setNeedful] = useState("");
+  const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -40,12 +40,20 @@ function SignupPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const body = { firstName, lastName, email, donor, needful, phoneNumber, password };
+    const body = {
+      firstName,
+      lastName,
+      email,
+      donor,
+      needful,
+      phoneNumber,
+      password,
+    };
 
     axios
       .post(`${process.env.REACT_APP_API_URL}/auth/signup`, body)
       .then(() => {
-        navigate('/login');
+        navigate("/login");
       })
       .catch((err) => {
         setErrorMessage(err.response.data.errorMessage);
@@ -60,7 +68,7 @@ function SignupPage() {
           <label htmlFor="firstName"> First Name*</label>
           <input
             type="text"
-            placeholder="First"
+            placeholder="First Name"
             className="css-authinput"
             value={firstName}
             name="firstName"
@@ -69,7 +77,7 @@ function SignupPage() {
           <label htmlFor="lastName">Last Name*</label>
           <input
             type="text"
-            placeholder="Last"
+            placeholder="Last Name"
             className="css-authinput"
             value={lastName}
             name="lastName"
@@ -86,23 +94,33 @@ function SignupPage() {
             onChange={handlePhoneNumber}
           />
 
-          <label htmlFor="userType">User Type*</label>
-          <div>
-            <input
-              type="checkbox"
-              className="css-authinput"
-              label="Donor"
-              value={donor}
-              onChange={handleDonor}
-            />
-            <input
-              type="checkbox"
-              className="css-authinput"
-              label="Needful"
-              value={needful}
-              onChange={handleNeedful}
-            />
-          </div>
+          <fieldset>
+            <div>
+              <label htmlFor="userType">User Type*</label>
+            </div>
+
+            <div>
+              <input
+                type="checkbox"
+                className="css-authinput"
+                label="Donor"
+                value={donor}
+                name="userType"
+                onChange={handleDonor}
+              />
+              <label htmlFor="donor">Donor</label>
+           
+              <input
+                type="checkbox"
+                className="css-authinput"
+                label="Needful"
+                value={needful}
+                name="userType"
+                onChange={handleNeedful}
+              />
+              <label htmlFor="needful">Needful</label>
+            </div>
+          </fieldset>
 
           <label htmlFor="email">Email address*</label>
           <input
