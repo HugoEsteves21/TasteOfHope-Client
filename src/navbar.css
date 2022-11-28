@@ -29,7 +29,7 @@ a {
 .nav {
   display: flex;
   position: fixed;
-  width: 100%;
+  width: 101%;
   align-items: center;
   justify-content: space-around;
   height: 8vh;
@@ -39,7 +39,7 @@ a {
 
 .brand img {
   width: 145px;
-  height: 56px;
+  height: 52px;
 }
 
 .nav_menu {

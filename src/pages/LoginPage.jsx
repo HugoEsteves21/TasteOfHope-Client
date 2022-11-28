@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import axios from 'axios';
+import '../auth.css';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
