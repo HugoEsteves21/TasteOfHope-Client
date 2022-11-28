@@ -25,6 +25,7 @@ function LoginPage() {
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();
+        
         navigate('/');
       })
       .catch((err) => {
