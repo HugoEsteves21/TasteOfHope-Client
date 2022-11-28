@@ -18,7 +18,7 @@ function ChooseUnit() {
 
       // every route protected on the backend needs to receive the headers object with the token that authorizes the user to get in
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/market/${id}/baskets"`,
+        `${process.env.REACT_APP_API_URL}/market/${id}/baskets`,
         {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
@@ -52,12 +52,12 @@ function ChooseUnit() {
   }, []);
 
   // function to add the basket that the needful chooses
-  const addUnit = async () => {
+  const addUnit = async (unitId) => {
     try {
       const storedToken = localStorage.getItem("authToken");
 
       // we use put because we will change the state received
-      await axios.put(`${process.env.REACT_APP_API_URL}/basket/${id}"`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/basket/${unitId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
         received,
       });
@@ -65,7 +65,7 @@ function ChooseUnit() {
       // change the state to positive, because the basket has been received by a needful
       setReceived(!received);
 
-      navigate("/home/user");
+      navigate("/home");
     } catch (error) {
       console.log(error);
     }

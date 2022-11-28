@@ -14,7 +14,7 @@ function App() {
 
       <Route path='/signup' element={<SignupPage />} />
       <Route path='/login' element={<LoginPage />} />
-      <Route path='/basket/choose' element={<ChooseBasket />} />
+      <Route path='/:id/basket/choose' element={<ChooseBasket />} />
 
     </Routes>
 
