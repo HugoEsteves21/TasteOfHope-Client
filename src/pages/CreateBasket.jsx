@@ -1,7 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 function CreateBasket() {
+  const navigate = useNavigate();
+
+  const { authenticateUser, user } = useContext(AuthContext);
+
   const [type, setType] = useState("Hope");
   const [market, setMarket] = useState(null);
   const [products, setProducts] = useState([]);
@@ -9,14 +15,14 @@ function CreateBasket() {
   const [data, setData] = useState([]);
   const [marketData, setMarketData] = useState([]);
 
-  const handleType = (e) => setType(e.target.value);
-  const handleMarket = (e) => setMarket(e.target.value);
+  //const handleType = (e) => setType(e.target.value);
   //const handlePrice = (e) => setPrice(e.target.value);
+
+  const handleMarket = (e) => setMarket(e.target.value);
   const handleProducts = (e) => {
     let newProducts = [...products, e.target.value];
-    setProducts(newProducts);
 
-    console.log(products);
+    setProducts(newProducts);
 
     let sumProducts = data.reduce((acc, cur) => {
       if (newProducts.includes(cur._id)) {
@@ -24,7 +30,7 @@ function CreateBasket() {
       }
       return acc;
     }, 0);
-    console.log(sumProducts);
+
     setPrice(sumProducts);
   };
 
@@ -48,7 +54,7 @@ function CreateBasket() {
       setProducts([]);
       setPrice(0);
 
-      //navigate
+      navigate(`/profile/${user._id}`);
     } catch (error) {
       console.log(error);
     }
@@ -91,6 +97,7 @@ function CreateBasket() {
   useEffect(() => {
     getProducts();
     getMarkets();
+    authenticateUser();
   }, []);
 
   return (
