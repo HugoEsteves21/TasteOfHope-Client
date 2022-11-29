@@ -1,22 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function CreateBasket() {
   const [type, setType] = useState("");
   const [market, setMarket] = useState("");
-  const [products, setProducts] = useState("");
+  const [products, setProducts] = useState([]);
   const [price, setPrice] = useState(0);
+  const [data, setData] = useState([]);
 
   const handleType = (e) => setType(e.target.value);
   const handleMarket = (e) => setMarket(e.target.value);
-  const handlePrice = (e) => setPrice(e.target.value);
-  /* const handleProducts = (e) => {
-    setProducts(e.target.value);
-
-    let sumProducts = products.reduce((acc, val) => acc + val, 0);
+  //const handlePrice = (e) => setPrice(e.target.value);
+  const handleProducts = (e) => {
+    let sumProducts = data.reduce((acc, cur) => acc + cur.price, 0);
 
     setPrice(sumProducts);
-  }; */
+    setProducts(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,12 +35,33 @@ function CreateBasket() {
 
       setType("");
       setMarket("");
-      //setProducts("");
+      setProducts([]);
       setPrice(0);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const getProducts = async () => {
+    try {
+      const storedToken = localStorage.getItem("authToken");
+
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/products`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
+
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div>
@@ -69,23 +90,25 @@ function CreateBasket() {
           onChange={handleMarket}
         />
 
-        {/* {products.map((product) => (
-          <div>
+        {data.map((product) => (
+          <div key={product._id}>
             <img src={product.imageUrl} alt="product choice" />
+            <h5>{product.name}</h5>
             <input
               type="radio"
               label={product}
               value={product}
-              name={product}
+              name={product.name}
               onClick={handleProducts}
             />
-            <label htmlFor={product}>{product}</label>
+
+            {/* <label htmlFor={product}>{product}</label> */}
             <p>{product.packageSize}</p>
             <p>{product.price}</p>
           </div>
-        ))} */}
+        ))}
 
-        {/* <label htmlFor="price">Price:{price}</label> */}
+        <label htmlFor="price">Price:{price}</label>
 
         <button type="submit">I'm ready to help!</button>
       </form>
