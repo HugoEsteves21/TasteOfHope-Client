@@ -26,8 +26,7 @@ function LoginPage() {
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();
-        // não sabemos se temos acesso a este id aqui
-        navigate(`/home/${id}`);
+        navigate('/home');
       })
       .catch((err) => {
         setErrorMessage(err.response.data.errorMessage);

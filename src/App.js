@@ -18,8 +18,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        {/* perceber se precisamos deste id aqui */}
-        <Route path="/home/:id" element={<UserHomePage />} />
+        <Route path="/home" element={<UserHomePage />} />
         <Route path="/:id/basket/choose" element={<ChooseBasket />} />
         <Route path="/basket/create" element={<CreateBasket />} />
       </Routes>
