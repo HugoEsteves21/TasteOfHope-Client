@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import '../profile.css';
 
 function EditProfile() {
   // const { firstName, lastName, phoneNumber}
@@ -75,10 +76,10 @@ function EditProfile() {
   };
 
   return (
-    <div>
-      <h3>Edit account</h3>
+    <div className="profilePage">
+      <h3 className="location">Edit account</h3>
 
-      <form onSubmit={handleSubmit}>
+      <form className="editForm" onSubmit={handleSubmit}>
         <label htmlFor="firstName">First Name:</label>
         <input
           type="text"
@@ -103,10 +104,10 @@ function EditProfile() {
           onChange={handlePhoneNumber}
         />
 
-        <button type="submit">Save changes</button>
+        <button className="tag" type="submit">Save changes</button>
       </form>
 
-      <button onClick={deleteProfile}>Delete Account ⚠️</button>
+      <button className="tag" onClick={deleteProfile}>Delete Account ⚠️</button>
     </div>
   );
 }

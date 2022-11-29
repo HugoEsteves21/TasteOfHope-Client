@@ -69,3 +69,8 @@ header .profile-image:hover {
 .tag:hover::after {
   border-left-color: rgb(23, 75, 18);
 }
+
+.editForm {
+  margin-top: 50px;
+  padding: 20px;
+}
