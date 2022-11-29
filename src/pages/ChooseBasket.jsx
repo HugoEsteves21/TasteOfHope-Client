@@ -31,22 +31,6 @@ function ChooseBasket() {
     }
   };
 
-  // funtion to call the backend route updateToken that updates the token everytime the user to perform changes
-  /*   const tokenUpdate = async () => {
-    try {
-      const storedToken = localStorage.getItem("authToken");
-
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/updateToken`,
-        {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        }
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  }; */
-
   useEffect(() => {
     getBaskets();
   }, []);
@@ -83,7 +67,7 @@ function ChooseBasket() {
             <h4>Products inside:</h4>
             {basket.products.map((product) => {
               return (
-                <li>
+                <li key={product._id}>
                   <h6>{product.name}</h6>
                 </li>
               );
