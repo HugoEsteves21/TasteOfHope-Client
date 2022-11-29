@@ -65,6 +65,10 @@ function CreateBasket() {
 
   return (
     <div>
+    <h1>dgsfdh</h1>
+    <h1>dgsfdh</h1>
+    <h1>dgsfdh</h1>
+    <h1>dgsfdh</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="userType">What kind of help do you wish to give?</label>
 
@@ -98,13 +102,13 @@ function CreateBasket() {
               type="radio"
               label={product}
               value={product}
-              name={product.name}
+              name={product._id}
               onClick={handleProducts}
             />
 
             {/* <label htmlFor={product}>{product}</label> */}
             <p>{product.packageSize}</p>
-            <p>{product.price}</p>
+            <p>{product.price} €</p>
           </div>
         ))}
 

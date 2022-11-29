@@ -9,7 +9,6 @@ function LoginPage() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(undefined);
   const navigate = useNavigate();
-  const { id } = useParams();
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
   const handleEmail = (e) => setEmail(e.target.value);
