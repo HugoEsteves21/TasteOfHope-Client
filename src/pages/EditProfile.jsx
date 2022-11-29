@@ -74,7 +74,41 @@ function EditProfile() {
     } catch (error) {}
   };
 
-  return <div></div>;
+  return (
+    <div>
+      <h3>Edit account</h3>
+
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="firstName">First Name:</label>
+        <input
+          type="text"
+          name="firstName"
+          value={firstName}
+          onChange={handleFirstName}
+        />
+
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          type="text"
+          name="lastName"
+          value={lastName}
+          onChange={handleLastName}
+        />
+
+        <label htmlFor="phoneNumber">Phone Number:</label>
+        <input
+          type="text"
+          name="phoneNumber"
+          value={phoneNumber}
+          onChange={handlePhoneNumber}
+        />
+
+        <button type="submit">Save changes</button>
+      </form>
+
+      <button onClick={deleteProfile}>Delete Account ⚠️</button>
+    </div>
+  );
 }
 
 export default EditProfile;
