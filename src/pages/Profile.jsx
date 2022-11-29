@@ -39,23 +39,24 @@ function Profile() {
       {donor && (
         <>
           <header>
-            <img src={profileImg} alt="profile-pic" class="profile-image" />
-            <h1 class="tag name">
+            <img src={profileImg} alt="profile-pic" className="profile-image" />
+            <h1 className="location">
               Hello, {user.firstName} {user.lastName}
             </h1>
-            <p class="tag location">Logged in with: {user.email}</p>
-            <p class="tag location">Phone Number: {user.phoneNumber}</p>
+            <p className="location">Logged in with: {user.email}</p>
+            <p className="location">Phone Number: {user.phoneNumber}</p>
 
-            <Link class="tag-name" to={`/profile/edit/${user._id}`}>
+            <Link className="tag" to={`/profile/edit/${user._id}`}>
               Edit Account
             </Link>
           </header>
-          <div class="profile-favs">
+          <div className="profile-favs">
             <div>
               <h2>Baskets you gave 🥰</h2>
               {user.givenBaskets.map((baskets) => (
-                <li>
-                  <h6>{baskets}</h6>
+                <li key={baskets._id}>
+                  <h5>{baskets.basketType}</h5>
+                  <h6>{baskets.price}</h6>
                 </li>
               ))}
             </div>
@@ -66,23 +67,24 @@ function Profile() {
       {needful && (
         <>
           <header>
-            <img src={profileImg} alt="profile-pic" class="profile-image" />
-            <h1 class="tag name">
+            <img src={profileImg} alt="profile-pic" className="profile-image" />
+            <h1 className="location">
               Hello, {user.firstName} {user.lastName}
             </h1>
-            <p class="tag location">Logged in with: {user.email}</p>
-            <p class="tag location">Phone Number: {user.phoneNumber}</p>
+            <p className="location">Logged in with: {user.email}</p>
+            <p className="location">Phone Number: {user.phoneNumber}</p>
 
-            <Link class="tag name" to={`/profile/edit/${user._id}`}>
+            <Link className="tag" to={`/profile/edit/${user._id}`}>
               Edit Account
             </Link>
           </header>
-          <div class="profile-favs">
+          <div className="profile-favs">
             <div>
               <h2>Baskets you received 🥰</h2>
               {user.receivedBaskets.map((baskets) => (
-                <li>
-                  <h6>{baskets}</h6>
+                <li key={baskets._id}>
+                  <h5>{baskets.basketType}</h5>
+                  <h6>{baskets.market[0]}</h6>
                 </li>
               ))}
             </div>

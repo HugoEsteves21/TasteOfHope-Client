@@ -2,12 +2,12 @@ header {
   line-height: 1.5;
 }
 header .profile-image {
-  margin-top: 50px;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   border: 3px solid white;
   transition: all 0.5s;
+  margin: 80px 0 10px 0;
 }
 header .profile-image:hover {
   transform: scale(1.2) rotate(5deg);
@@ -21,4 +21,51 @@ header .profile-image:hover {
 .tag-name {
   text-decoration: none;
   color: rgb(16, 57, 18);
+}
+
+.tag-name Link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: rgb(16, 57, 18);
+}
+
+/* ------------------------- */
+.tag {
+  background-color: #efefef;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  display: table;
+  margin: 10px auto;
+}
+/* .tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: "";
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.tag::after {
+  background: #fff;
+  border-bottom: 13px solid transparent;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+} */
+
+.tag:hover {
+  background-color: rgb(23, 75, 18);
+  color: white;
+}
+
+.tag:hover::after {
+  border-left-color: rgb(23, 75, 18);
 }

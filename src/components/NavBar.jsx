@@ -25,7 +25,7 @@ function NavBar() {
 
   return (
     <nav className="nav">
-      <Link to="/home" className="brand" onClick={() => setActive('nav_menu')}>
+      <Link to="/" className="brand" onClick={() => setActive('nav_menu')}>
         <img src={logo} alt="" />
       </Link>
       <ul className={active}>
