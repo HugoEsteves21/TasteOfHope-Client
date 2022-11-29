@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 import logo from '../images/logo-white.png';
 import '../navbar.css';
 
 function NavBar() {
   const [active, setActive] = useState('nav_menu');
   const [icon, setIcon] = useState('nav_toggler');
+  const { user, authenticateUser, logout } = useContext(AuthContext);
   const navToggle = () => {
     if (active === 'nav_menu') {
       setActive('nav_menu nav_active');
@@ -17,19 +19,33 @@ function NavBar() {
     } else setIcon('nav_toggler');
   };
 
+  useEffect(() => {
+    authenticateUser()
+  }, [])
+
   return (
     <nav className="nav">
-      <Link to="/" className="brand">
+      <Link to="/" className="brand" onClick={() => setActive('nav_menu')}>
         <img src={logo} alt="" />
       </Link>
       <ul className={active}>
+       { user && <li className="nav_item" onClick={() => setActive('nav_menu')}>
+         <Link to={`/profile/${user._id}`} className="nav_link">
+            My Profile
+          </Link> 
+        </li>}
+       { user && <li className="nav_item" onClick={() => setActive('nav_menu')}>
+         <Link to='/' onClick={logout} className="nav_link">
+            Logout
+          </Link> 
+        </li>}
         <li className="nav_item">
-          <Link to="/about-us" className="nav_link">
+          <Link to="/about-us" className="nav_link" onClick={() => setActive('nav_menu')}>
             About Us
           </Link>
         </li>
         <li className="nav_item">
-          <Link to="/contacts" className="nav_link">
+          <Link to="/contacts" className="nav_link" onClick={() => setActive('nav_menu')}>
             Contacts
           </Link>
         </li>

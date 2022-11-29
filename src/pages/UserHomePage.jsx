@@ -1,19 +1,22 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useContext, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { AuthContext } from '../context/auth.context';
 import '../home.css';
 
 function UserHomePage() {
   const [donor, setDonor] = useState(false);
   const [needful, setNeedfull] = useState(false);
-  const { id } = useParams();
+  const { user } = useContext(AuthContext);
 
   const getUser = async () => {
     try {
       const storedToken = localStorage.getItem('authToken');
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
+
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile/${user._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       });
+      console.log(user);
 
       if (response.data.userType === 'Donor') {
         setDonor(true);
@@ -27,7 +30,8 @@ function UserHomePage() {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [user]);
+
   return (
     <div className="userHomePage">
       {donor && (
@@ -42,10 +46,14 @@ function UserHomePage() {
             </div>
             <div className="donationCards">
               <div>
-                <Link to="/basket/add">Choose Predefined Basket</Link>
+                <Link className="LinkBtnHome" to="/basket/add">
+                  Choose Predefined Basket
+                </Link>
               </div>
               <div>
-                <Link to="/basket/create">Make your own Basket</Link>
+                <Link className="LinkBtnHome" to="/basket/create">
+                  Make your own Basket
+                </Link>
               </div>
             </div>
           </div>
@@ -56,7 +64,7 @@ function UserHomePage() {
         <>
           <div className="needfulHP">
             <div className="hp-background"></div>
-
+            <h1>IM HEREEEEEE</h1>
             <div className="search">Future Searchbar</div>
           </div>
         </>
