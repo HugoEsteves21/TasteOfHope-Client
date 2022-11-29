@@ -1,13 +1,13 @@
-import './App.css';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
-import { Routes, Route } from 'react-router-dom';
-import ChooseBasket from './pages/ChooseBasket';
-import SignupPage from './pages/SignupPage';
-import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
-import CreateBasket from './pages/CreateBasket';
-import UserHomePage from './pages/UserHomePage';
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import { Routes, Route } from "react-router-dom";
+import ChooseBasket from "./pages/ChooseBasket";
+import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import CreateBasket from "./pages/CreateBasket";
+import UserHomePage from "./pages/UserHomePage";
 
 function App() {
   return (

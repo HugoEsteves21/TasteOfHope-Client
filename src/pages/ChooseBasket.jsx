@@ -81,11 +81,13 @@ function ChooseBasket() {
             <h3>Type of Basket: {basket.basketType}</h3>
             {/* <h4>Available in: {basket.market}</h4> */}
             <h4>Products inside:</h4>
-            {basket.products.map((product) => (
-              <li>
-                <h6>{product}</h6>
-              </li>
-            ))}
+            {basket.products.map((product) => {
+              return (
+                <li>
+                  <h6>{product.name}</h6>
+                </li>
+              );
+            })}
             <p>{basket.received}</p>
 
             <button onClick={addBasket}>Get Basket 😎</button>
