@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 import CreateBasket from './pages/CreateBasket';
 import UserHomePage from './pages/UserHomePage';
 import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/home" element={<UserHomePage />} />
         <Route path="/:id/basket/choose" element={<ChooseBasket />} />
         <Route path="/basket/create" element={<CreateBasket />} />
+        <Route path="/profile/:id/edit" element={<EditProfile />} />
       </Routes>
 
       <Footer />
