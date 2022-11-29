@@ -133,9 +133,10 @@ function CreateBasket() {
         /> */}
 
         <label htmlFor="produt">What are you offering?</label>
+        <div className='addProd'>
         {data.map((product) => (
-          <div key={product._id}>
-            <img src={product.imageUrl} alt="product choice" />
+          <div className='individual' key={product._id}>
+            <img className='images' src={product.imageUrl} alt="product choice" />
             <h5>{product.name}</h5>
             <input
               type="radio"
@@ -150,6 +151,7 @@ function CreateBasket() {
             <p>{product.price} €</p>
           </div>
         ))}
+        </div>
 
         <label htmlFor="price">Price:{price}</label>
 

@@ -8,6 +8,9 @@ function UserHomePage() {
   const [donor, setDonor] = useState(false);
   const [needful, setNeedfull] = useState(false);
   const { user } = useContext(AuthContext);
+  const [marketData, setMarketData] = useState([]);
+
+  const handleMarket = (e) => setMarketData(e.target.value);
 
   const getUser = async () => {
     try {
@@ -28,7 +31,22 @@ function UserHomePage() {
     }
   };
 
+  const getMarkets = async () => {
+    try {
+      const storedToken = localStorage.getItem('authToken');
+
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/markets`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
+
+      setMarketData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
+    getMarkets();
     getUser();
   }, [user]);
 
@@ -65,7 +83,27 @@ function UserHomePage() {
           <div className="needfulHP">
             <div className="hp-background"></div>
             <h1>IM HEREEEEEE</h1>
-            <div className="search">Future Searchbar</div>
+
+            <div className="needful-mkts">
+              {/* <form onSubmit={handleSubmit}>
+                <select name="market" id="market" required size="5" onChange={handleMarket}>
+                  {marketData.map((market) => (
+                    <option key={market._id} value={market._id}>
+                      {market.name}
+                    </option>
+                  ))}
+                </select>
+                <Link className="LinkBtnHome" to="/{id}/basket/choose">
+                  See available baskets
+                </Link>
+              </form> */}
+
+              {marketData.map((market) => (
+                    <Link className="LinkBtnHome" to={`/${market._id}/basket/choose`} key={market._id} value={market._id}>
+                      {market.name}
+                    </Link>
+                  ))}
+            </div>
           </div>
         </>
       )}
