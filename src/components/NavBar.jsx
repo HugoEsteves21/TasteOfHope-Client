@@ -20,25 +20,20 @@ function NavBar() {
   };
 
   useEffect(() => {
-    authenticateUser()
-  }, [])
+    authenticateUser();
+  }, []);
 
   return (
     <nav className="nav">
-      <Link to="/" className="brand" onClick={() => setActive('nav_menu')}>
+      <Link to="/home" className="brand" onClick={() => setActive('nav_menu')}>
         <img src={logo} alt="" />
       </Link>
       <ul className={active}>
-       { user && <li className="nav_item" onClick={() => setActive('nav_menu')}>
-         <Link to={`/profile/${user._id}`} className="nav_link">
-            My Profile
-          </Link> 
-        </li>}
-       { user && <li className="nav_item" onClick={() => setActive('nav_menu')}>
-         <Link to='/' onClick={logout} className="nav_link">
-            Logout
-          </Link> 
-        </li>}
+        <li className="nav_item">
+          <Link to="/home" className="nav_link" onClick={() => setActive('nav_menu')}>
+            🏠
+          </Link>
+        </li>
         <li className="nav_item">
           <Link to="/about-us" className="nav_link" onClick={() => setActive('nav_menu')}>
             About Us
@@ -49,6 +44,20 @@ function NavBar() {
             Contacts
           </Link>
         </li>
+        {user && (
+          <li className="nav_item" onClick={() => setActive('nav_menu')}>
+            <Link to={`/profile/${user._id}`} className="nav_link">
+              My Profile
+            </Link>
+          </li>
+        )}
+        {user && (
+          <li className="nav_item" onClick={() => setActive('nav_menu')}>
+            <Link to="/" onClick={logout} className="nav_link">
+              Logout
+            </Link>
+          </li>
+        )}
       </ul>
       <div onClick={navToggle} className={icon}>
         <div className="line1"></div>

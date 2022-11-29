@@ -1,0 +1,24 @@
+header {
+  line-height: 1.5;
+}
+header .profile-image {
+  margin-top: 50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: all 0.5s;
+}
+header .profile-image:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.location {
+  background-color: rgb(255, 255, 255);
+  color: rgb(21, 72, 19);
+}
+
+.tag-name {
+  text-decoration: none;
+  color: rgb(16, 57, 18);
+}

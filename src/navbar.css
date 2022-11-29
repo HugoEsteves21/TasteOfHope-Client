@@ -134,7 +134,7 @@ footer {
   background-image: -o-linear-gradient(top, #327e26bd, #4c484ead);
   background-image: linear-gradient(to bottom, #285c20bd, #1b3019ad);
   color: #fff;
-  /* position: absolute; */
+  position: absolute;
   width: 100%;
   margin-bottom: 0px;
   bottom: 0px;

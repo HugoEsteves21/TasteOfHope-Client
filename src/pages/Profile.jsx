@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import profileImg from '../images/profile-img.jpg';
+import '../profile.css';
 
 function Profile() {
   const [donor, setDonor] = useState(false);
@@ -31,7 +32,7 @@ function Profile() {
 
   useEffect(() => {
     getUser();
-  }, [userId]);
+  }, [id]);
 
   return (
     <div className="profilePage">
@@ -45,7 +46,7 @@ function Profile() {
             <p class="tag location">Logged in with: {user.email}</p>
             <p class="tag location">Phone Number: {user.phoneNumber}</p>
 
-            <Link class="tag name" to={`/profile/edit/${user._id}`}>
+            <Link class="tag-name" to={`/profile/edit/${user._id}`}>
               Edit Account
             </Link>
           </header>
