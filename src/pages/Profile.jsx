@@ -56,6 +56,7 @@ function Profile() {
               {user.givenBaskets.map((baskets) => (
                 <li key={baskets._id}>
                   <h5>{baskets.basketType}</h5>
+                  <h6>{baskets.received}</h6>
                   <h6>{baskets.price}</h6>
                 </li>
               ))}

@@ -1,14 +1,15 @@
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
+import { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
+import '../basket.css';
 
 function CreateBasket() {
   const navigate = useNavigate();
 
   const { authenticateUser, user } = useContext(AuthContext);
 
-  const [type, setType] = useState("Hope");
+  const [type, setType] = useState('Hope');
   const [market, setMarket] = useState(null);
   const [products, setProducts] = useState([]);
   const [price, setPrice] = useState(0);
@@ -39,7 +40,7 @@ function CreateBasket() {
 
     try {
       // getting the authorization token of the user in the local storage
-      const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem('authToken');
 
       await axios.post(
         `${process.env.REACT_APP_API_URL}/basket`,
@@ -49,7 +50,7 @@ function CreateBasket() {
         }
       );
 
-      setType("Hope");
+      setType('Hope');
       setMarket(null);
       setProducts([]);
       setPrice(0);
@@ -62,14 +63,11 @@ function CreateBasket() {
 
   const getProducts = async () => {
     try {
-      const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem('authToken');
 
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/products`,
-        {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        }
-      );
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/products`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
 
       setData(response.data);
     } catch (error) {
@@ -79,14 +77,11 @@ function CreateBasket() {
 
   const getMarkets = async () => {
     try {
-      const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem('authToken');
 
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/markets`,
-        {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        }
-      );
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/markets`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
 
       setMarketData(response.data);
     } catch (error) {
@@ -101,11 +96,8 @@ function CreateBasket() {
   }, []);
 
   return (
-    <div>
-      <h1>dgsfdh</h1>
-      <h1>dgsfdh</h1>
-      <h1>dgsfdh</h1>
-      <h1>dgsfdh</h1>
+    <div className="padding">
+    
       <form onSubmit={handleSubmit}>
         {/* <label htmlFor="userType">What kind of help do you wish to give?</label>
 
@@ -125,13 +117,7 @@ function CreateBasket() {
 
         <label htmlFor="market">Where are you dropping your basket?</label>
 
-        <select
-          name="market"
-          id="market"
-          required
-          size="5"
-          onChange={handleMarket}
-        >
+        <select name="market" id="market" required size="5" onChange={handleMarket}>
           {marketData.map((market) => (
             <option key={market._id} value={market._id}>
               {market.name}
