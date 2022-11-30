@@ -9,6 +9,7 @@ header .profile-image {
   border: 3px solid white;
   transition: all 0.5s;
   margin: 80px 0 10px 0;
+  background-color: antiquewhite;
 }
 
 header .profile-image:hover {
@@ -57,4 +58,22 @@ header .profile-image:hover {
 .editForm {
   margin-top: 50px;
   padding: 20px;
+}
+
+.profile-table {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.borderBox {
+  border: 2px solid rgba(127, 121, 121, 0.689);
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin: 10px;
+}
+
+.title {
+  margin: 20px;
 }
