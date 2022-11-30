@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import '../profile.css';
+import "../profile.css";
 
 function EditProfile() {
   // const { firstName, lastName, phoneNumber}
@@ -12,7 +12,7 @@ function EditProfile() {
 
   const { id } = useParams();
   const navigate = useNavigate();
-  const { logout } = useContext(AuthContext);
+  const { logout, tokenUpdate } = useContext(AuthContext);
 
   const handleFirstName = (e) => setFirstName(e.target.value);
   const handleLastName = (e) => setLastName(e.target.value);
@@ -43,17 +43,18 @@ function EditProfile() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    const body = { firstName, lastName, phoneNumber };
     try {
       const storedToken = localStorage.getItem("authToken");
 
-      await axios.put(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/profile/${id}`, body, {
         headers: { Authorization: `Bearer ${storedToken}` },
       });
 
       setFirstName("");
       setLastName("");
       setPhoneNumber("");
+      tokenUpdate();
 
       navigate(`/profile/${id}`);
     } catch (error) {
@@ -104,10 +105,14 @@ function EditProfile() {
           onChange={handlePhoneNumber}
         />
 
-        <button className="tag" type="submit">Save changes</button>
+        <button className="tag" type="submit">
+          Save changes
+        </button>
       </form>
 
-      <button className="tag" onClick={deleteProfile}>Delete Account ⚠️</button>
+      <button className="tag" onClick={deleteProfile}>
+        Delete Account ⚠️
+      </button>
     </div>
   );
 }

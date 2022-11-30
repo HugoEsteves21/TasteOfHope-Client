@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 
 function ChooseBasket() {
   // declare the state for the baskets
@@ -9,7 +10,7 @@ function ChooseBasket() {
 
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const { tokenUpdate } = useContext(AuthContext);
   // funtion to call the API
   const getBaskets = async () => {
     try {
@@ -39,16 +40,19 @@ function ChooseBasket() {
   const addBasket = async (basketId) => {
     try {
       const storedToken = localStorage.getItem("authToken");
-
+      const body = { received };
       // we use put because we will change the state received
-      await axios.put(`${process.env.REACT_APP_API_URL}/basket/${basketId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-        received: !received,
-      });
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/basket/${basketId}`,
+        body,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
 
       // change the state to positive, because the basket has been received by a needful
       setReceived(!received);
-
+      tokenUpdate();
       // update the list of basket that the user can see
       let filteredBaskets = baskets.filter(
         (basket) => basket.received === false
