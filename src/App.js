@@ -7,6 +7,7 @@ import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import CreateBasket from './pages/CreateBasket';
+import AddBasket from './pages/AddBasket';
 import UserHomePage from './pages/UserHomePage';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
@@ -24,6 +25,7 @@ function App() {
         <Route path="/home" element={<UserHomePage />} />
         <Route path="/:id/basket/choose" element={<ChooseBasket />} />
         <Route path="/basket/create" element={<CreateBasket />} />
+        <Route path="/basket/add" element={<AddBasket />} />
         <Route path="/profile/:id/edit" element={<EditProfile />} />
       </Routes>
 
