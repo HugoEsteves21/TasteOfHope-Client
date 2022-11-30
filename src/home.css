@@ -37,13 +37,14 @@
 }
 
 /* https://images.pexels.com/photos/7890010/pexels-photo-7890010.jpeg */
+/* url('https://img.freepik.com/free-photo/flat-lay-basket-organic-vegetables-with-grocery-bag_23-2148853368.jpg?w=996&t=st=1669827538~exp=1669828138~hmac=c9a440bf08950edb9a3a9d3cadfaa7a2f6c7d7e7d409fda9fe613286184f96bb') */
 .hp-background {
-  background-image: url('https://img.freepik.com/free-photo/flat-lay-basket-organic-vegetables-with-grocery-bag_23-2148853368.jpg?w=996&t=st=1669827538~exp=1669828138~hmac=c9a440bf08950edb9a3a9d3cadfaa7a2f6c7d7e7d409fda9fe613286184f96bb');
+  background-image: url("../src/images/basket-vegetables-with-grocery-bag-cover.jpg");
   height: 75vh;
   width: 100%;
   background-size: cover;
   background-position: bottom;
-  /* margin-top: 100px; */ 
+  /* margin-top: 100px; */
 }
 
 .cover-image {

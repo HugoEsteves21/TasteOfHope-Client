@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import "../home.css";
+import coverImage1 from '../images/basket-vegetables-with-grocery-bag-cover.jpg'
+import coverImage2 from '../images/holding-hands-cover.jpg'
 
 function HomePage() {
   const { user, authenticateUser } = useContext(AuthContext);
@@ -31,7 +33,7 @@ function HomePage() {
           </p>
           <img
             className="cover-section2-image cover-section2-style"
-            src="https://img.freepik.com/free-photo/couple-holding-hands-green-meadow_1150-26188.jpg?w=996&t=st=1669818020~exp=1669818620~hmac=e7e9db253f96d7009e5b9f4fc5927fe66c4a3e68cc586faad723d63cbbbb8bbd"
+            src={coverImage2}
             alt=""
           />
         </div>
