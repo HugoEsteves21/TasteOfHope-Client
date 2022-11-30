@@ -1,0 +1,35 @@
+.about-us {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+header .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: all 0.5s;
+  margin: 80px 0 10px 0;
+}
+
+header .profile-image:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.tag {
+  background-color: #efefef;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  display: table;
+  margin: 10px auto;
+}
+
+.tag:hover {
+  background-color: rgb(23, 75, 18);
+  color: white;
+}
+
+.tag:hover::after {
+  border-left-color: rgb(23, 75, 18);
+}

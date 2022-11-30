@@ -11,6 +11,7 @@ import AddBasket from './pages/AddBasket';
 import UserHomePage from './pages/UserHomePage';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/profile/:id" element={<Profile />} />
         <Route path="/home" element={<UserHomePage />} />
         <Route path="/:id/basket/choose" element={<ChooseBasket />} />
