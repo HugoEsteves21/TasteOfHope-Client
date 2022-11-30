@@ -11,6 +11,10 @@
 
 .hp-intro {
   padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .loginFormPhraseP2 {
@@ -32,8 +36,9 @@
   border-bottom: 2px solid rgb(10, 84, 15);
 }
 
+/* https://images.pexels.com/photos/7890010/pexels-photo-7890010.jpeg */
 .hp-background {
-  background-image: url('https://images.pexels.com/photos/7890010/pexels-photo-7890010.jpeg');
+  background-image: url('https://img.freepik.com/free-photo/flat-lay-basket-organic-vegetables-with-grocery-bag_23-2148853368.jpg?w=996&t=st=1669827538~exp=1669828138~hmac=c9a440bf08950edb9a3a9d3cadfaa7a2f6c7d7e7d409fda9fe613286184f96bb');
   height: 75vh;
   width: 100%;
   background-size: cover;
@@ -43,6 +48,10 @@
 
 .cover-image {
   margin-top: 100px;
+}
+
+.cover-image2 {
+  padding-top: 100px;
 }
 
 /* ---------------------------------- */
@@ -78,4 +87,25 @@
   padding-top: 200px;
   font-size: xx-large;
   color: antiquewhite;
+}
+
+.cover-section2-image {
+  height: auto;
+  width: 50vw;
+  border-radius: 50%;
+}
+
+.cover-section2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cover-section2 p {
+  font-size: x-large;
+}
+
+.cover-section2-style {
+  padding: 50px;
 }

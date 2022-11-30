@@ -1,8 +1,8 @@
-import { useContext, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { AuthContext } from '../context/auth.context';
-import '../home.css';
+import { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { AuthContext } from "../context/auth.context";
+import "../home.css";
 
 function UserHomePage() {
   const [donor, setDonor] = useState(false);
@@ -14,14 +14,17 @@ function UserHomePage() {
 
   const getUser = async () => {
     try {
-      const storedToken = localStorage.getItem('authToken');
+      const storedToken = localStorage.getItem("authToken");
 
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile/${user._id}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      });
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/profile/${user._id}`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
       console.log(user);
 
-      if (response.data.userType === 'Donor') {
+      if (response.data.userType === "Donor") {
         setDonor(true);
       } else {
         setNeedfull(true);
@@ -33,11 +36,14 @@ function UserHomePage() {
 
   const getMarkets = async () => {
     try {
-      const storedToken = localStorage.getItem('authToken');
+      const storedToken = localStorage.getItem("authToken");
 
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/markets`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      });
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/markets`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
 
       setMarketData(response.data);
     } catch (error) {
@@ -58,8 +64,9 @@ function UserHomePage() {
             <div>
               <p>
                 It is with hope that we thank you for your contribution. <br />
-                The act of giving means helping somebody else, making them happy in some way, no
-                matter how simple your action may be. <hr /> Within each help, a merit of its own.
+                The act of giving means helping somebody else, making them happy
+                in some way, no matter how simple your action may be. <hr />{" "}
+                Within each help, a merit of its own.
               </p>
             </div>
             <div className="donationCards">
@@ -80,15 +87,20 @@ function UserHomePage() {
 
       {needful && (
         <>
-          <div className="needfulHP">
+          <div className="needfulHP cover-image2">
             <div className="hp-background"></div>
 
             <div className="needful-mkts">
               {marketData.map((market) => (
-                    <Link className="LinkBtnHome" to={`/${market._id}/basket/choose`} key={market._id} value={market._id}>
-                      {market.name}
-                    </Link>
-                  ))}
+                <Link
+                  className="LinkBtnHome"
+                  to={`/${market._id}/basket/choose`}
+                  key={market._id}
+                  value={market._id}
+                >
+                  {market.name}
+                </Link>
+              ))}
             </div>
           </div>
         </>

@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../context/auth.context';
-import '../home.css';
+import React, { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+import "../home.css";
 
 function HomePage() {
   const { user, authenticateUser } = useContext(AuthContext);
@@ -12,30 +12,48 @@ function HomePage() {
 
   return (
     <div className="homepage">
-     
       <div className="hp-background cover-image">
-        <div className='title-quote'>
-        <q>Asking for help is never a sign of weakness. <br /> It's one of the bravest things
-        you can do. <br /> And it can save your life.</q>
+        <div className="title-quote">
+          <q>
+            Asking for help is never a sign of weakness. <br /> It's one of the
+            bravest things you can do. <br /> And it can save your life.
+          </q>
         </div>
       </div>
-      
+
       <section>
-        <div className="hp-intro">
-          <p>
-            <em>If you're willing to help, or need help, stay with us.</em>
+        <div className="hp-intro cover-section2">
+          <p className="cover-section2-style">
+            <em>
+              If you're willing to help, or need help,
+              <br /> stay with us.
+            </em>
           </p>
-          <img src="https://img.freepik.com/free-photo/couple-holding-hands-green-meadow_1150-26188.jpg?w=996&t=st=1669818020~exp=1669818620~hmac=e7e9db253f96d7009e5b9f4fc5927fe66c4a3e68cc586faad723d63cbbbb8bbd" alt="" />
+          <img
+            className="cover-section2-image cover-section2-style"
+            src="https://img.freepik.com/free-photo/couple-holding-hands-green-meadow_1150-26188.jpg?w=996&t=st=1669818020~exp=1669818620~hmac=e7e9db253f96d7009e5b9f4fc5927fe66c4a3e68cc586faad723d63cbbbb8bbd"
+            alt=""
+          />
         </div>
       </section>
       <section>
         <div className="hp-intro">
-          <p className='padding'>
-          <q>The best way to not feel hopeless is to get up and do something. Don't wait for good
-            things to happen to you. If you go out and make some good things happen, you will fill the
-            world with hope, you will fill yourself with hope.</q><br />
+          <img
+            className="cover-section2-image cover-section2-style"
+            src="https://s.abcnews.com/images/US/OBAMA_FOOD_BANK_181122KA_hpMain_16x9_992.jpg"
+            alt=""
+          />
+          <p className="padding">
+            <q className="cover-section2 p">
+              The best way to not feel hopeless is to get up and do something.
+              Don't wait for good things to happen to you. If you go out and
+              make some good things happen, you will fill the world with hope,
+              you will fill yourself with hope.
+            </q>
+            <br />
             <em>- Barack Obama</em>
-            <hr /> {/* "Asking for help is never a sign of weakness. <br /> It's one of the bravest things
+            <hr />{" "}
+            {/* "Asking for help is never a sign of weakness. <br /> It's one of the bravest things
             you can do. <br /> And it can save your life." */}
           </p>
         </div>
