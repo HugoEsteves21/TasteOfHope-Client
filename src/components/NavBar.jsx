@@ -34,23 +34,18 @@ function NavBar() {
             🏠
           </Link>
         </li>
+        {user && (
+          <li className="nav_item" onClick={() => setActive('nav_menu')}>
+            <Link to={`/profile/${user._id}`} className="nav_link">
+              👤
+            </Link>
+          </li>
+        )}
         <li className="nav_item">
           <Link to="/about-us" className="nav_link" onClick={() => setActive('nav_menu')}>
             About Us
           </Link>
         </li>
-        <li className="nav_item">
-          <Link to="/contacts" className="nav_link" onClick={() => setActive('nav_menu')}>
-            Contacts
-          </Link>
-        </li>
-        {user && (
-          <li className="nav_item" onClick={() => setActive('nav_menu')}>
-            <Link to={`/profile/${user._id}`} className="nav_link">
-              My Profile
-            </Link>
-          </li>
-        )}
         {user && (
           <li className="nav_item" onClick={() => setActive('nav_menu')}>
             <Link to="/" onClick={logout} className="nav_link">
