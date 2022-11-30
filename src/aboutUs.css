@@ -33,3 +33,24 @@ header .profile-image:hover {
 .tag:hover::after {
   border-left-color: rgb(23, 75, 18);
 }
+
+.profiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: space-evenly;
+  padding-bottom: 200px;
+}
+
+.ind-profile {
+  width: 18vw;
+  height: 35vh;
+}
+
+.profile-buttons {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}

@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
-import "../profile.css";
+import { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
+import '../profile.css';
 
 function EditProfile() {
   // const { firstName, lastName, phoneNumber}
@@ -51,9 +51,9 @@ function EditProfile() {
         headers: { Authorization: `Bearer ${storedToken}` },
       });
 
-      setFirstName("");
-      setLastName("");
-      setPhoneNumber("");
+      setFirstName('');
+      setLastName('');
+      setPhoneNumber('');
       tokenUpdate();
 
       navigate(`/profile/${id}`);
