@@ -85,19 +85,6 @@ function UserHomePage() {
             <h1>IM HEREEEEEE</h1>
 
             <div className="needful-mkts">
-              {/* <form onSubmit={handleSubmit}>
-                <select name="market" id="market" required size="5" onChange={handleMarket}>
-                  {marketData.map((market) => (
-                    <option key={market._id} value={market._id}>
-                      {market.name}
-                    </option>
-                  ))}
-                </select>
-                <Link className="LinkBtnHome" to="/{id}/basket/choose">
-                  See available baskets
-                </Link>
-              </form> */}
-
               {marketData.map((market) => (
                     <Link className="LinkBtnHome" to={`/${market._id}/basket/choose`} key={market._id} value={market._id}>
                       {market.name}
