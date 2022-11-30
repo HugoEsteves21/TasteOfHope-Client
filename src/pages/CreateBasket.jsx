@@ -32,7 +32,7 @@ function CreateBasket() {
       return acc;
     }, 0);
 
-    setPrice(sumProducts);
+    setPrice(Math.floor(sumProducts));
   };
 
   const handleSubmit = async (e) => {
@@ -97,6 +97,7 @@ function CreateBasket() {
 
   return (
     <div className="padding">
+      
       <form onSubmit={handleSubmit}>
         <div className='market-title'>
           <label htmlFor="market">Where are you dropping your basket?</label>

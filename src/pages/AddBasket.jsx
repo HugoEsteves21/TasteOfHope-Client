@@ -118,7 +118,7 @@ function AddBasket() {
   }, []);
 
   return (
-    <div className="padding">
+    <div className="padding backgroundColor">
       <div className="addBasket">
         <article className="addBasketOutline">
           <img

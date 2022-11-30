@@ -74,6 +74,10 @@ header .profile-image:hover {
   margin: 10px;
 }
 
+li.borderBox > h5, h6 {
+  margin: 10px 0;
+}
+
 .title {
   margin: 20px;
 }
