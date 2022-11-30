@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../navbar.css';
 
 function Footer() {
@@ -10,8 +9,17 @@ function Footer() {
           <div className="footer-bottom">
             © 2022 Copyright:
             <hr />
-            <Link to="https://github.com/brunorocha20">Bruno Rocha</Link> &
-            <Link to="https://github.com/HugoEsteves21/"> Hugo Esteves</Link>
+            <a href="https://github.com/brunorocha20" target="_blank" rel="noopener noreferrer">
+              Bruno Rocha
+            </a>
+            &
+            <a
+              href="https://www.linkedin.com/in/hugo-veiga-esteves/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hugo Esteves
+            </a>
           </div>
         </div>
       </div>

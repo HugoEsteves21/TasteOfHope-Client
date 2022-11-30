@@ -28,28 +28,50 @@ function AboutUs() {
           <div className="ind-profile">
             <header>
               <img src={hugoImg} alt="hugo-pic" className="profile-image" />
+              <h2>Hugo Esteves</h2>
               <p>Full Stack Developer with a background in Mathematics and Data.</p>
-              <div className='profile-buttons'>
-              <Link className="tag" to="https://github.com/HugoEsteves21/">
-                Github
-              </Link>
-              <Link className="tag" to="https://www.linkedin.com/in/hugo-veiga-esteves/">
-                LinkedIn
-              </Link>
+              <div className="profile-buttons">
+                <a
+                  className="tag"
+                  href="https://github.com/HugoEsteves21/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+                <a
+                  className="tag"
+                  href="https://www.linkedin.com/in/hugo-veiga-esteves/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
               </div>
             </header>
           </div>
           <div className="ind-profile">
             <header>
               <img src={brunoImg} alt="bruno-pic" className="profile-image" />
+              <h2>Bruno Rocha</h2>
               <p>Full Stack Developer with a background in Sports.</p>
-              <div className='profile-buttons'>
-              <Link className="tag" to="https://github.com/brunorocha20">
-                Github
-              </Link>
-              <Link className="tag" to="https://www.linkedin.com/in/bruno-m-a-rocha/">
-                LinkedIn
-              </Link>
+              <div className="profile-buttons">
+                <a
+                  className="tag"
+                  href="https://github.com/brunorocha20"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Github
+                </a>
+                <a
+                  className="tag"
+                  href="https://www.linkedin.com/in/bruno-m-a-rocha/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
               </div>
             </header>
           </div>
