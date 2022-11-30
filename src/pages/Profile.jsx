@@ -58,7 +58,11 @@ function Profile() {
                   <h5>{baskets.basketType}</h5>
                   <h6>{baskets.price}</h6>
                   <hr />
-                  <h6>{baskets.received ? 'Your basket has been claimed.' : 'Still waiting to be collected.'}</h6>
+                  <h6>
+                    {baskets.received
+                      ? 'Your basket has been claimed.'
+                      : 'Still waiting to be collected.'}
+                  </h6>
                 </li>
               ))}
             </div>

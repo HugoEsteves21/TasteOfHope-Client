@@ -1,14 +1,14 @@
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
+import { useState, useEffect, useContext } from 'react';
+import axios from 'axios';
+import { useParams, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 import '../profile.css';
 
 function EditProfile() {
   // const { firstName, lastName, phoneNumber}
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -20,14 +20,11 @@ function EditProfile() {
 
   const getProfile = async () => {
     try {
-      const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem('authToken');
 
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/profile/${id}`,
-        {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        }
-      );
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
 
       setFirstName(response.data.firstName);
       setLastName(response.data.lastName);
@@ -45,15 +42,15 @@ function EditProfile() {
     e.preventDefault();
 
     try {
-      const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem('authToken');
 
       await axios.put(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       });
 
-      setFirstName("");
-      setLastName("");
-      setPhoneNumber("");
+      setFirstName('');
+      setLastName('');
+      setPhoneNumber('');
 
       navigate(`/profile/${id}`);
     } catch (error) {
@@ -63,7 +60,7 @@ function EditProfile() {
 
   const deleteProfile = async () => {
     try {
-      const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem('authToken');
 
       await axios.delete(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -71,7 +68,7 @@ function EditProfile() {
 
       logout();
 
-      navigate("/");
+      navigate('/');
     } catch (error) {}
   };
 
@@ -79,35 +76,26 @@ function EditProfile() {
     <div className="profilePage">
       <h3 className="location">Edit account</h3>
 
-      <form className="editForm" onSubmit={handleSubmit}>
-        <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          name="firstName"
-          value={firstName}
-          onChange={handleFirstName}
-        />
+      <div className="profile-favs">
+        <form className="editForm" onSubmit={handleSubmit}>
+          <label htmlFor="firstName">First Name:</label>
+          <input type="text" name="firstName" value={firstName} onChange={handleFirstName} />
 
-        <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          name="lastName"
-          value={lastName}
-          onChange={handleLastName}
-        />
+          <label htmlFor="lastName">Last Name:</label>
+          <input type="text" name="lastName" value={lastName} onChange={handleLastName} />
 
-        <label htmlFor="phoneNumber">Phone Number:</label>
-        <input
-          type="text"
-          name="phoneNumber"
-          value={phoneNumber}
-          onChange={handlePhoneNumber}
-        />
+          <label htmlFor="phoneNumber">Phone Number:</label>
+          <input type="text" name="phoneNumber" value={phoneNumber} onChange={handlePhoneNumber} />
 
-        <button className="tag" type="submit">Save changes</button>
-      </form>
+          <button className="tag" type="submit">
+            Save changes
+          </button>
+        </form>
 
-      <button className="tag" onClick={deleteProfile}>Delete Account ⚠️</button>
+        <button className="tag" onClick={deleteProfile}>
+          Delete Account ⚠️
+        </button>
+      </div>
     </div>
   );
 }
