@@ -1,5 +1,5 @@
-import { useState, useEffect, createContext } from 'react';
-import axios from 'axios';
+import { useState, useEffect, createContext } from "react";
+import axios from "axios";
 
 //Create the context
 const AuthContext = createContext();
@@ -11,17 +11,20 @@ function AuthProviderWrapper(props) {
   const [loading, setLoading] = useState(true);
 
   const storeToken = (token) => {
-    localStorage.setItem('authToken', token);
+    localStorage.setItem("authToken", token);
   };
 
   const authenticateUser = async () => {
     try {
-      const storedToken = localStorage.getItem('authToken');
+      const storedToken = localStorage.getItem("authToken");
 
       if (storedToken) {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/verify`, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        });
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/verify`,
+          {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          }
+        );
         //The next part happens if the login was succesfful
         setLoggedIn(true);
         setUser(response.data);
@@ -45,13 +48,13 @@ function AuthProviderWrapper(props) {
 
   const logout = () => {
     //first, we remove the token from the local storage
-    localStorage.removeItem('authToken');
+    localStorage.removeItem("authToken");
     //we run authenticate again to reset the states
     authenticateUser();
   };
 
   // funtion to call the backend route updateToken that updates the token everytime the user to perform changes
-    const tokenUpdate = async () => {
+  const tokenUpdate = async () => {
     try {
       const storedToken = localStorage.getItem("authToken");
 
@@ -61,13 +64,24 @@ function AuthProviderWrapper(props) {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
       );
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <AuthContext.Provider value={{ loggedIn, user, loading, storeToken, authenticateUser, logout, tokenUpdate }}>
+    <AuthContext.Provider
+      value={{
+        loggedIn,
+        user,
+        loading,
+        storeToken,
+        authenticateUser,
+        logout,
+        tokenUpdate,
+      }}
+    >
       {props.children}
     </AuthContext.Provider>
   );

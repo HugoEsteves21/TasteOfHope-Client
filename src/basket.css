@@ -24,7 +24,7 @@
 
 .images-addCart {
     width: 18vw;
-    height: 35vh;
+    height: auto;
 }
 
 .addBasket {
@@ -32,6 +32,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 /* .addBasketOutline {
