@@ -49,6 +49,13 @@ function ChooseBasket() {
       // change the state to positive, because the basket has been received by a needful
       setReceived(!received);
 
+      // update the list of basket that the user can see
+      let filteredBaskets = baskets.filter(
+        (basket) => basket.received === false
+      );
+
+      setBaskets(filteredBaskets);
+
       navigate("/home");
     } catch (error) {
       console.log(error);
@@ -63,7 +70,6 @@ function ChooseBasket() {
         return (
           <div key={basket._id}>
             <h3>Type of Basket: {basket.basketType}</h3>
-            {/* <h4>Available in: {basket.market}</h4> */}
             <h4>Products inside:</h4>
             {basket.products.map((product) => {
               return (
@@ -72,7 +78,11 @@ function ChooseBasket() {
                 </li>
               );
             })}
-            <p>{basket.received}</p>
+            <p>
+              {basket.received
+                ? "This basket has been claimed 😔"
+                : "I'm available 😊"}
+            </p>
 
             <button onClick={addBasket}>Get Basket 😎</button>
           </div>
