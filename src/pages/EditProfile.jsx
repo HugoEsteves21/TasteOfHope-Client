@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
-import "../profile.css";
-=======
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import '../profile.css';
->>>>>>> e20c924d0cc4ec1a4534921e675029e03dd27d70
 
 function EditProfile() {
   // const { firstName, lastName, phoneNumber}
@@ -56,16 +48,10 @@ function EditProfile() {
         headers: { Authorization: `Bearer ${storedToken}` },
       });
 
-<<<<<<< HEAD
-      setFirstName("");
-      setLastName("");
-      setPhoneNumber("");
-      tokenUpdate();
-=======
       setFirstName('');
       setLastName('');
       setPhoneNumber('');
->>>>>>> e20c924d0cc4ec1a4534921e675029e03dd27d70
+      tokenUpdate();
 
       navigate(`/profile/${id}`);
     } catch (error) {
@@ -102,16 +88,6 @@ function EditProfile() {
           <label htmlFor="phoneNumber">Phone Number:</label>
           <input type="text" name="phoneNumber" value={phoneNumber} onChange={handlePhoneNumber} />
 
-<<<<<<< HEAD
-        <button className="tag" type="submit">
-          Save changes
-        </button>
-      </form>
-
-      <button className="tag" onClick={deleteProfile}>
-        Delete Account ⚠️
-      </button>
-=======
           <button className="tag" type="submit">
             Save changes
           </button>
@@ -121,7 +97,6 @@ function EditProfile() {
           Delete Account ⚠️
         </button>
       </div>
->>>>>>> e20c924d0cc4ec1a4534921e675029e03dd27d70
     </div>
   );
 }
