@@ -38,7 +38,7 @@ function Profile() {
     <div className="profilePage">
       {donor && (
         <>
-          <header>
+          <header className='bg-color'>
             <img src={profileImg} alt="profile-pic" className="profile-image" />
             <h1 className="location">
               Hello, {user.firstName} {user.lastName}
@@ -51,20 +51,35 @@ function Profile() {
             </Link>
           </header>
           <div className="profile-favs">
-            <div>
-              <h2>Baskets you gave 🥰</h2>
-              {user.givenBaskets.map((baskets) => (
-                <li key={baskets._id}>
-                  <h5>{baskets.basketType}</h5>
-                  <h6>{baskets.price}</h6>
-                  <hr />
-                  <h6>
-                    {baskets.received
-                      ? 'Your basket has been claimed.'
-                      : 'Still waiting to be collected.'}
-                  </h6>
-                </li>
-              ))}
+            <div className="profile-table">
+              <div>
+                <h2 className='title'>Baskets you gave 🥰</h2>
+                {user.givenBaskets.map((baskets) => (
+                  <li className="borderBox" key={baskets._id}>
+                    <h5><b>Basket type:</b>  {baskets.basketType}</h5>
+                    <h6><b>Price:</b>  {baskets.price}€</h6>
+                    <h6>
+                      {baskets.received
+                        ? 'Your basket has been claimed.'
+                        : 'Still waiting to be collected.'}
+                    </h6>
+                  </li>
+                ))}
+              </div>
+              <div>
+                <h2 className='title'>Units you gave 🥰</h2>
+                {user.givenUnits.map((units) => (
+                  <li className="borderBox" key={units._id}>
+                    <h5><b>Basket type:</b>  {units.basketType}</h5>
+                    <h6><b>Price:</b>  {units.price}€</h6>
+                    <h6>
+                      {units.received
+                        ? 'Your basket has been claimed.'
+                        : 'Still waiting to be collected.'}
+                    </h6>
+                  </li>
+                ))}
+              </div>
             </div>
           </div>
         </>
@@ -85,14 +100,25 @@ function Profile() {
             </Link>
           </header>
           <div className="profile-favs">
-            <div>
-              <h2>Baskets you received 🥰</h2>
-              {user.receivedBaskets.map((baskets) => (
-                <li key={baskets._id}>
-                  <h5>{baskets.basketType}</h5>
-                  <h6>{baskets.market[0]}</h6>
-                </li>
-              ))}
+            <div className="profile-table">
+              <div>
+                <h2 className='title'>Baskets you received 🥰</h2>
+                {user.receivedBaskets.map((baskets) => (
+                  <li className="borderBox" key={baskets._id}>
+                    <h5><b>Basket type:</b>  {baskets.basketType}</h5>
+                    <h6><b>Collected at:</b>  {baskets.market[0]}</h6>
+                  </li>
+                ))}
+              </div>
+              <div>
+                <h2 className='title'>Units you received 🥰</h2>
+                {user.receivedUnits.map((units) => (
+                  <li className="borderBox" key={units._id}>
+                    <h5><b>Basket type:</b>  {units.basketType}</h5>
+                    <h6><b>Collected at:</b>  {units.market[0]}</h6>
+                  </li>
+                ))}
+              </div>
             </div>
           </div>
         </>

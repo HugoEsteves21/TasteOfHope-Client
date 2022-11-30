@@ -97,26 +97,11 @@ function CreateBasket() {
 
   return (
     <div className="padding">
-    
       <form onSubmit={handleSubmit}>
-        {/* <label htmlFor="userType">What kind of help do you wish to give?</label>
-
-        <select
-          name="basketType"
-          id="basketType"
-          autofocus
-          required
-          size="4"
-          onChange={handleType}
-        >
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="L">L</option>
-          <option value="Hope">Hope</option>
-        </select> */}
-
-        <label htmlFor="market">Where are you dropping your basket?</label>
-
+        <div className='market-title'>
+          <label htmlFor="market">Where are you dropping your basket?</label>
+        </div>
+        <div className='market-choice'>
         <select name="market" id="market" required size="5" onChange={handleMarket}>
           {marketData.map((market) => (
             <option key={market._id} value={market._id}>
@@ -124,38 +109,39 @@ function CreateBasket() {
             </option>
           ))}
         </select>
-
-        {/*  <input
-          type="text"
-          name="market"
-          value={market}
-          onChange={handleMarket}
-        /> */}
-
+        </div>
+        <br />
         <label htmlFor="produt">What are you offering?</label>
-        <div className='addProd'>
-        {data.map((product) => (
-          <div className='individual' key={product._id}>
-            <img className='images' src={product.imageUrl} alt="product choice" />
-            <h5>{product.name}</h5>
-            <input
-              type="radio"
-              label={product}
-              value={product._id}
-              name={product._id}
-              onClick={handleProducts}
-            />
+        <div className="addProd">
+          {data.map((product) => (
+            <div className="individual" key={product._id}>
+              <img className="images" src={product.imageUrl} alt="product choice" />
+              <h5>{product.name}</h5>
+              <input
+                type="radio"
+                label={product}
+                value={product._id}
+                name={product._id}
+                onClick={handleProducts}
+              />
 
-            {/* <label htmlFor={product}>{product}</label> */}
-            <p>{product.packageSize}</p>
-            <p>{product.price} €</p>
-          </div>
-        ))}
+              <p>{product.packageSize}</p>
+              <p>{product.price} €</p>
+            </div>
+          ))}
         </div>
 
-        <label htmlFor="price">Price:{price}</label>
-
-        <button type="submit">I'm ready to help!</button>
+        <div className="price">
+          <label htmlFor="price">
+            Price: <br />
+            {price} €
+          </label>
+          <div className="price-button">
+            <button className="tag" type="submit">
+              I'm ready to help!
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );

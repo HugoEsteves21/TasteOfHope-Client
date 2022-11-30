@@ -29,11 +29,13 @@ function NavBar() {
         <img src={logo} alt="" />
       </Link>
       <ul className={active}>
-        <li className="nav_item">
-          <Link to="/home" className="nav_link" onClick={() => setActive('nav_menu')}>
-            🏠
-          </Link>
-        </li>
+        {user && (
+          <li className="nav_item">
+            <Link to="/home" className="nav_link" onClick={() => setActive('nav_menu')}>
+              🏠
+            </Link>
+          </li>
+        )}
         {user && (
           <li className="nav_item" onClick={() => setActive('nav_menu')}>
             <Link to={`/profile/${user._id}`} className="nav_link">
