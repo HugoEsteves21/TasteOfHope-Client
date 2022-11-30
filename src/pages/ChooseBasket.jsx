@@ -25,7 +25,13 @@ function ChooseBasket() {
         }
       );
 
-      setBaskets(response.data.basket);
+      // update the list of basket that the user can see
+      let filteredBaskets = response.data.basket.filter(
+        (basket) => basket.received === false
+      );
+
+      setBaskets(filteredBaskets);
+
       console.log(response.data.basket);
     } catch (error) {
       console.log(error);
@@ -37,13 +43,13 @@ function ChooseBasket() {
   }, []);
 
   // function to add the basket that the needful chooses
-  const addBasket = async (basketId) => {
+  const addBasket = async (basket) => {
     try {
       const storedToken = localStorage.getItem("authToken");
-      const body = { received };
+      const body = { received: !received, products: basket.products };
       // we use put because we will change the state received
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/basket/${basketId}`,
+        `${process.env.REACT_APP_API_URL}/basket/${basket._id}`,
         body,
         {
           headers: { Authorization: `Bearer ${storedToken}` },
@@ -53,6 +59,7 @@ function ChooseBasket() {
       // change the state to positive, because the basket has been received by a needful
       setReceived(!received);
       tokenUpdate();
+
       // update the list of basket that the user can see
       let filteredBaskets = baskets.filter(
         (basket) => basket.received === false
@@ -88,7 +95,7 @@ function ChooseBasket() {
                 : "I'm available 😊"}
             </p>
 
-            <button onClick={addBasket}>Get Basket 😎</button>
+            <button onClick={() => addBasket(basket)}>Get Basket 😎</button>
           </div>
         );
       })}

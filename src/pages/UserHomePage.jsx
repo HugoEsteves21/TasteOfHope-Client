@@ -82,7 +82,6 @@ function UserHomePage() {
         <>
           <div className="needfulHP">
             <div className="hp-background"></div>
-            <h1>IM HEREEEEEE</h1>
 
             <div className="needful-mkts">
               {marketData.map((market) => (
