@@ -15,6 +15,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .loginFormPhraseP2 {
@@ -85,6 +86,12 @@
 .needful-mkts {
   padding-bottom: 100px;
   margin-bottom: 100px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .title-quote {
@@ -109,6 +116,10 @@
 
 .cover-section2 p {
   font-size: x-large;
+}
+
+.paddingTag {
+  width: 40vw;
 }
 
 .cover-section2-style {
@@ -142,4 +153,13 @@
 .constructionImage {
   height: auto;
   width: 3vw;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .cover-section2-image {
+    height: auto;
+    width: 80vw;
+    border-radius: 50%;
+  }
 }
