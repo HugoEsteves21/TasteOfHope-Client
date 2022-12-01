@@ -1,0 +1,136 @@
+header {
+  line-height: 1.5;
+}
+
+header .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: all 0.5s;
+  margin: 80px 0 10px 0;
+  background-color: antiquewhite;
+}
+
+header .profile-image:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.profile-favs {
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.location {
+  /* background-color: rgb(255, 255, 255); */
+  color: rgb(21, 72, 19);
+}
+
+.tag-name {
+  text-decoration: none;
+  color: rgb(16, 57, 18);
+}
+
+.tag-name Link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background-color: rgb(16, 57, 18);
+}
+
+/* ------------------------- */
+.tag {
+  background-color: #efefef;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  display: table;
+  margin: 10px auto;
+}
+
+.tag:hover {
+  background-color: rgb(23, 75, 18);
+  color: white;
+}
+
+.tag:hover::after {
+  border-left-color: rgb(23, 75, 18);
+}
+
+.editForm {
+  margin-top: 30px;
+  padding: 5px;
+}
+
+.editForm input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-table {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.borderBox {
+  border: 2px solid rgba(127, 121, 121, 0.689);
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin: 10px;
+}
+
+li.borderBox > h5,
+h6 {
+  margin: 10px 0;
+}
+
+.title {
+  margin: 20px;
+}
+
+.editProfilePage {
+  border-radius: 50px;
+  width: 70vw;
+  height: 70vh;
+  background-color: rgba(42, 92, 51, 0.75);
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+}
+
+.editBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-wrap: wrap;
+}
+
+.editProfilePage h3 {
+  margin-top: 40px;
+  color: white;
+}
+
+
+.tag-delete {
+  background-color: #efefef;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  display: table;
+  margin: 10px auto;
+}
+
+.tag-delete:hover {
+  background-color: rgb(228, 16, 16);
+  color: white;
+}
+
+.tag-delete:hover::after {
+  border-left-color: rgb(224, 19, 19);
+}
