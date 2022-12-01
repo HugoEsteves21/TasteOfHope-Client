@@ -96,7 +96,7 @@ function Profile() {
             <p className="location">Logged in with: {user.email}</p>
             <p className="location">Phone Number: {user.phoneNumber}</p>
 
-            <Link className="tag" to={`/profile/edit/${user._id}`}>
+            <Link className="tag" to={`/profile/${user._id}/edit`}>
               Edit Account
             </Link>
           </header>
