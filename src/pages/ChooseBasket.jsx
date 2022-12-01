@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import "../basket.css";
 
 function ChooseBasket() {
   // declare the state for the baskets
@@ -74,31 +75,37 @@ function ChooseBasket() {
   };
 
   return (
-    <div>
-      <h1>What kind of Hope are you taking today? 🤗</h1>
+    <div className="footerDiv">
+      <h1 className="basketChooseTitle">
+        What kind of Hope are you taking today? 🤗
+      </h1>
+      <article className="basketChooseDiv">
+        {baskets.map((basket) => {
+          return (
+            <div key={basket._id} className='basketChooseCardDiv'>
+              <h3>Type of Basket: {basket.basketType}</h3>
+              <h4>Products inside:</h4>
+              {basket.products.map((product) => {
+                return (
+                  <li key={product._id}>
+                    <h6>{product.name}</h6>
+                  </li>
+                );
+              })}
 
-      {baskets.map((basket) => {
-        return (
-          <div key={basket._id}>
-            <h3>Type of Basket: {basket.basketType}</h3>
-            <h4>Products inside:</h4>
-            {basket.products.map((product) => {
-              return (
-                <li key={product._id}>
-                  <h6>{product.name}</h6>
-                </li>
-              );
-            })}
-            <p>
-              {basket.received
-                ? "This basket has been claimed 😔"
-                : "I'm available 😊"}
-            </p>
+              <p>
+                {basket.received
+                  ? "This basket has been claimed 😔"
+                  : "I'm available 😊"}
+              </p>
 
-            <button onClick={() => addBasket(basket)}>Get Basket 😎</button>
-          </div>
-        );
-      })}
+              <button className="tag" onClick={() => addBasket(basket)}>
+                Get Basket 😎
+              </button>
+            </div>
+          );
+        })}
+      </article>
     </div>
   );
 }
