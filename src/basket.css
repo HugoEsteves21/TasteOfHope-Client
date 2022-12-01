@@ -16,10 +16,12 @@
   align-items: center;
   align-content: space-evenly;
   margin: 10px;
+  margin-top: 25px;
 }
 
 .individual {
   width: 27vw;
+  margin-top: 20px;
 }
 
 .images-addCart {
@@ -109,4 +111,8 @@
 
 .basketChooseCardDiv {
   margin-top: 15px;
+}
+
+.labelFontSize {
+  font-size: x-large;
 }

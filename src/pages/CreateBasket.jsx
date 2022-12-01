@@ -111,7 +111,7 @@ function CreateBasket() {
       </div>
       <form onSubmit={handleSubmit}>
         <div className="market-title">
-          <label htmlFor="market">Where are you dropping your basket?</label>
+          <label className="labelFontSize" htmlFor="market">Where are you dropping your basket?</label>
         </div>
         <div className="market-choice">
           <select
@@ -129,12 +129,12 @@ function CreateBasket() {
           </select>
         </div>
         <br />
-        <label htmlFor="produt">What are you offering?</label>
+        <label className="labelFontSize" htmlFor="produt">What are you offering?</label>
         <div className="addProd">
           {data.map((product) => (
             <div className="individual" key={product._id}>
               {/* <img className="images" src={product.imageUrl} alt="product choice" /> */}
-              <h5>{product.name}</h5>
+              <h4>{product.name}</h4>
               <input
                 type="radio"
                 label={product}
@@ -144,14 +144,14 @@ function CreateBasket() {
               />
 
               <p>{product.packageSize}</p>
-              <p>{product.price} €</p>
+              <p><b>Price: </b>{product.price} €</p>
             </div>
           ))}
         </div>
 
         <div className="price">
           <label htmlFor="price">
-            Price: <br />
+            Final Price: <br />
             {price} €
           </label>
           <div className="price-button">
