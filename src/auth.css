@@ -1,0 +1,160 @@
+/* ------------------------------------ */
+
+.signupBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signupPageB h1 {
+  margin-bottom: 22px;
+}
+
+.loginPageB h1 {
+  margin-bottom: 22px;
+}
+
+.loginH1 {
+  margin-top: 25px;
+}
+
+.signupPageB {
+  border-radius: 50px;
+  width: 40vw;
+  background-color: rgba(42, 92, 51, 0.75);
+  margin: 100px 0;
+  padding: 50px;
+  text-align: center;
+  color: white;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginFormPhraseP {
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+
+.signupLinkBtn {
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  border-bottom: 2px solid white;
+}
+
+.signupBtnSubmit {
+  width: 110px;
+  margin: 10px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: white;
+  color: #363636;
+  border: 0;
+}
+
+.signupBtnSubmit:hover {
+  font-weight: bold;
+}
+
+/* ------ */
+
+.loginBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loginPageB {
+  border-radius: 50px;
+  width: 40vw;
+  height: 70vh;
+  background-color: rgba(42, 92, 51, 0.75);
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.css-authinput {
+  padding: 5px;
+  font-size: 16px;
+  border-width: 1px;
+  border-color: #cccccc;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: solid;
+  border-radius: 50px;
+  box-shadow: 0px 0px 5px rgba(42, 92, 51, 0.75);
+  text-shadow: 0px 0px 5px rgba(42, 92, 51, 0.75);
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.css-authinput:focus {
+  outline: none;
+}
+
+.loginLinkBtn {
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  border-bottom: 2px solid white;
+}
+
+.loginBtnSubmit {
+  width: 110px;
+  margin: 10px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: white;
+  color: #363636;
+  border: 0;
+}
+
+.loginBtnSubmit:hover {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .loginPageB {
+    border-radius: 50px;
+    width: 80vw;
+    background-color: rgba(42, 92, 51, 0.75);
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .signupPageB {
+    border-radius: 50px;
+    width: 75vw;
+    background-color: rgba(42, 92, 51, 0.75);
+    margin: 100px 0;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    overflow-x: hidden;
+  }
+}
+
+.fieldset {
+  border: none;
+}

@@ -1,0 +1,168 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.log-sign {
+  padding-bottom: 90px;
+}
+
+.hp-intro {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.loginFormPhraseP2 {
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+
+.signupLinkBtn2 {
+  text-decoration: none;
+  color: rgb(17, 64, 26);
+  margin: 0;
+  border-bottom: 2px solid rgb(10, 84, 15);
+}
+
+.loginLinkBtn2 {
+  text-decoration: none;
+  color: rgb(17, 64, 26);
+  margin: 0;
+  border-bottom: 2px solid rgb(10, 84, 15);
+}
+
+/* https://images.pexels.com/photos/7890010/pexels-photo-7890010.jpeg */
+/* url('https://img.freepik.com/free-photo/flat-lay-basket-organic-vegetables-with-grocery-bag_23-2148853368.jpg?w=996&t=st=1669827538~exp=1669828138~hmac=c9a440bf08950edb9a3a9d3cadfaa7a2f6c7d7e7d409fda9fe613286184f96bb') */
+.hp-background {
+  background-image: url("../src/images/basket-vegetables-with-grocery-bag-cover.jpg");
+  height: 75vh;
+  width: 100%;
+  background-size: cover;
+  background-position: bottom;
+  /* margin-top: 100px; */
+}
+
+.cover-image {
+  margin-top: 100px;
+}
+
+.cover-image2 {
+  padding-top: 100px;
+}
+
+/* ---------------------------------- */
+
+.donorHP {
+  /* padding: 50px; */
+  padding-top: 75px;
+}
+
+.donationCards {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.LinkBtnHome {
+  text-decoration: none;
+  color: rgb(17, 64, 26);
+  margin: 20px;
+  border-bottom: 2px solid rgb(10, 84, 15);
+}
+
+.padding {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.needful-mkts {
+  padding-bottom: 100px;
+  /* margin-bottom: 100px; */
+  margin-top: 100px;
+  margin-left: 70px;
+  margin-right: 70px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.title-quote {
+  z-index: 2;
+  padding-top: 200px;
+  font-size: xx-large;
+  color: antiquewhite;
+}
+
+.cover-section2-image {
+  height: auto;
+  width: 50vw;
+  border-radius: 50%;
+}
+
+.cover-section2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cover-section2 p {
+  font-size: x-large;
+}
+
+.paddingTag {
+  width: 40vw;
+}
+
+.cover-section2-style {
+  padding: 50px;
+}
+
+.userHomeCover {
+  padding-top: 200px;
+  font-size: xx-large;
+  background-image: url("../src/images/basket-vegetables-with-grocery-bag-cover.jpg");
+  height: 75vh;
+  width: 100%;
+  background-size: cover;
+  background-position: bottom;
+  color: antiquewhite;
+  margin-top: 30px;
+}
+
+.userHomeQuote {
+  padding-top: 70px;
+  padding-bottom: 50px;
+  font-size: larger;
+}
+
+.donationBtn {
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.constructionImage {
+  height: auto;
+  width: 3vh;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .cover-section2-image {
+    height: auto;
+    width: 80vw;
+    border-radius: 50%;
+  }
+}

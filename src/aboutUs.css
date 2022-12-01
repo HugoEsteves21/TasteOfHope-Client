@@ -1,0 +1,96 @@
+.about-us {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.aboutH1 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#aboutP {
+  padding: 30px;
+}
+
+#aboutP2 {
+  padding: 30px;
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
+header .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  transition: all 0.5s;
+  margin: 80px 0 10px 0;
+}
+
+header .profile-image:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.tag {
+  background-color: #efefef;
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+  display: table;
+  margin: 10px auto;
+}
+
+.tag:hover {
+  background-color: rgb(23, 75, 18);
+  color: white;
+}
+
+.tag:hover::after {
+  border-left-color: rgb(23, 75, 18);
+}
+
+.profiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: space-evenly;
+  padding-bottom: 200px;
+}
+
+.ind-profile {
+  width: 18vw;
+  height: 35vh;
+}
+
+.profile-buttons {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .ind-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+  }
+  header .profile-image {
+    width: 35vw;
+    height: 20vh;
+    border-radius: 50%;
+    border: 3px solid white;
+    transition: all 0.5s;
+    margin: 80px 0 10px 0;
+  }
+  #aboutP {
+    width: 75vw;
+    margin-left: 40px;
+  }
+  #aboutP2 {
+    width: 89vw;
+    margin-left: 10px;
+  }
+}
