@@ -58,12 +58,16 @@
 /* ---------------------------------- */
 
 .donorHP {
-  padding: 50px;
+  /* padding: 50px; */
   padding-top: 75px;
 }
 
 .donationCards {
   padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .LinkBtnHome {
@@ -109,4 +113,33 @@
 
 .cover-section2-style {
   padding: 50px;
+}
+
+.userHomeCover {
+  padding-top: 200px;
+  font-size: xx-large;
+  background-image: url("../src/images/basket-vegetables-with-grocery-bag-cover.jpg");
+  height: 75vh;
+  width: 100%;
+  background-size: cover;
+  background-position: bottom;
+  color: antiquewhite;
+  margin-top: 30px;
+}
+
+.userHomeQuote {
+  padding-top: 70px;
+  padding-bottom: 50px;
+  font-size: larger;
+}
+
+.donationBtn {
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.constructionImage {
+  height: auto;
+  width: 3vw;
 }

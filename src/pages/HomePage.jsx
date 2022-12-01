@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import "../home.css";
-import coverImage1 from '../images/basket-vegetables-with-grocery-bag-cover.jpg'
-import coverImage2 from '../images/holding-hands-cover.jpg'
+import coverImage1 from "../images/basket-vegetables-with-grocery-bag-cover.jpg";
+import coverImage2 from "../images/holding-hands-cover.jpg";
 
 function HomePage() {
   const { user, authenticateUser } = useContext(AuthContext);

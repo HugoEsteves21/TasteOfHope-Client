@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import "../home.css";
+import shoppingImage from "../images/shopping-bag.png";
+import fruitsImage from "../images/fruits-and-vegetables.png";
 
 function UserHomePage() {
   const [donor, setDonor] = useState(false);
@@ -61,22 +63,41 @@ function UserHomePage() {
       {donor && (
         <>
           <div className="donorHP">
-              
-            <div>
+            <div className="userHomeCover">
+              <q>
+                Asking for help is never a sign of weakness. <br /> It's one of
+                the bravest things you can do. <br /> And it can save your life.
+              </q>
+            </div>
+            <div className="userHomeQuote">
               <p>
-                It is with hope that we thank you for your contribution. <br />
-                The act of giving means helping somebody else, making them happy
-                in some way, no matter how simple your action may be. <hr />{" "}
-                Within each help, a merit of its own.
+                <em>
+                  It is with hope that we thank you for your contribution.{" "}
+                  <br />
+                  The act of giving means helping somebody else, making them
+                  happy in some way, no matter how simple your action may be.{" "}
+                  <br /> {/* <hr />{" "} */}
+                  Within each help, a merit of its own.
+                </em>
               </p>
             </div>
             <div className="donationCards">
-              <div>
+              <div className="donationBtn">
+                <img
+                  className="constructionImage"
+                  src={shoppingImage}
+                  alt="shopping bag"
+                />
                 <Link className="LinkBtnHome" to="/basket/add">
                   Choose Predefined Basket
                 </Link>
               </div>
-              <div>
+              <div className="donationBtn">
+                <img
+                  className="constructionImage"
+                  src={fruitsImage}
+                  alt="fruit basket"
+                />
                 <Link className="LinkBtnHome" to="/basket/create">
                   Make your own Basket
                 </Link>

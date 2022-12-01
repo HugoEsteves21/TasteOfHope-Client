@@ -10,7 +10,7 @@ function ChooseBasket() {
 
   const { id } = useParams();
   const navigate = useNavigate();
-  const { tokenUpdate } = useContext(AuthContext);
+  const { tokenUpdate, user } = useContext(AuthContext);
   // funtion to call the API
   const getBaskets = async () => {
     try {
@@ -67,7 +67,7 @@ function ChooseBasket() {
 
       setBaskets(filteredBaskets);
 
-      navigate("/home");
+      navigate(`/profile/${user._id}`);
     } catch (error) {
       console.log(error);
     }

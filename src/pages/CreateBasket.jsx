@@ -97,7 +97,12 @@ function CreateBasket() {
 
   return (
     <div className="padding">
-      
+      <div className="userHomeCover">
+              <q>
+                Asking for help is never a sign of weakness. <br /> It's one of
+                the bravest things you can do. <br /> And it can save your life.
+              </q>
+            </div>
       <form onSubmit={handleSubmit}>
         <div className='market-title'>
           <label htmlFor="market">Where are you dropping your basket?</label>
