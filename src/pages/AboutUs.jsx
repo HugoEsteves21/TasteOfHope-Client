@@ -8,7 +8,7 @@ function AboutUs() {
   return (
     <div>
       <article className="about-us">
-        <p>
+        <p id="aboutP">
           First of all, we want to thank you all for joining this community. <br />
           With this website, we hope to be helpful to the whole society. <br />
           We intend to promote good practices and help those who need it most. <br />
@@ -16,8 +16,8 @@ function AboutUs() {
           need it.
         </p>
         <hr />
-        <h1>Who are we?</h1>
-        <p>
+        <h1 className="aboutH1">Who are we?</h1>
+        <p id="aboutP2">
           Two starting web developers, who, while developing the third project of Ironhack's
           Bootcamp, decided to find a way to not only develop our skills, but also to help others.{' '}
           <br />
@@ -29,7 +29,7 @@ function AboutUs() {
             <header>
               <img src={hugoImg} alt="hugo-pic" className="profile-image" />
               <h2>Hugo Esteves</h2>
-              <p>Full Stack Developer with a background in Mathematics and Data.</p>
+              <p id="aboutMeP">Full Stack Developer with a background in Mathematics and Data.</p>
               <div className="profile-buttons">
                 <a
                   className="tag"
@@ -54,7 +54,9 @@ function AboutUs() {
             <header>
               <img src={brunoImg} alt="bruno-pic" className="profile-image" />
               <h2>Bruno Rocha</h2>
-              <p>Full Stack Developer with a background in Sports.</p>
+              <p id="aboutMeP2">
+                Full Stack Developer with a background in Physical Education and Sports.
+              </p>
               <div className="profile-buttons">
                 <a
                   className="tag"

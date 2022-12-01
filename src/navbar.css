@@ -135,11 +135,12 @@ footer {
   background-image: linear-gradient(to bottom, #285c20bd, #1b3019ad);
   color: #fff;
   position: absolute;
-  width: 100%;
+  width: 100vw;
   margin-bottom: 0px;
   /* bottom: 0; */
   padding: 1vh 0 1vh 0;
   font-size: 10px;
+  /* top: 1000px; */
 }
 footer a {
   color: #fff;

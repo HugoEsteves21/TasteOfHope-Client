@@ -7,9 +7,21 @@
   justify-content: center;
 }
 
+.signupPageB h1 {
+  margin-bottom: 22px;
+}
+
+.loginPageB h1 {
+  margin-bottom: 22px;
+}
+
+.loginH1 {
+  margin-top: 25px;
+}
+
 .signupPageB {
   border-radius: 50px;
-  width: 50vw;
+  width: 40vw;
   background-color: rgba(42, 92, 51, 0.75);
   margin: 100px 0;
   padding: 50px;
@@ -62,8 +74,8 @@
 
 .loginPageB {
   border-radius: 50px;
-  width: 50vw;
-  height: 60vh;
+  width: 40vw;
+  height: 70vh;
   background-color: rgba(42, 92, 51, 0.75);
   margin-top: 50px;
   text-align: center;
@@ -90,6 +102,8 @@
   text-shadow: 0px 0px 5px rgba(42, 92, 51, 0.75);
   margin-bottom: 20px;
   margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .css-authinput:focus {
@@ -115,4 +129,32 @@
 
 .loginBtnSubmit:hover {
   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .loginPageB {
+    border-radius: 50px;
+    width: 80vw;
+    background-color: rgba(42, 92, 51, 0.75);
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  .signupPageB {
+    border-radius: 50px;
+    width: 75vw;
+    background-color: rgba(42, 92, 51, 0.75);
+    margin: 100px 0;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    overflow-x: hidden;
+  }
+}
+
+.fieldset {
+  border: none;
 }

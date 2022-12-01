@@ -35,7 +35,7 @@ function LoginPage() {
   return (
     <div className="loginBody">
       <div className="loginPageB">
-        <h1>Login </h1>
+        <h1 className='loginH1'>Login </h1>
         <form onSubmit={handleLoginSubmit} className="loginForm">
           <label>Email address*</label>
           <input

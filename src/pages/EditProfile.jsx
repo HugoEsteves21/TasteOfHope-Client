@@ -6,9 +6,9 @@ import '../profile.css';
 
 function EditProfile() {
   // const { firstName, lastName, phoneNumber}
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -20,14 +20,11 @@ function EditProfile() {
 
   const getProfile = async () => {
     try {
-      const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem('authToken');
 
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/profile/${id}`,
-        {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        }
-      );
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
 
       setFirstName(response.data.firstName);
       setLastName(response.data.lastName);
@@ -45,7 +42,7 @@ function EditProfile() {
     e.preventDefault();
     const body = { firstName, lastName, phoneNumber };
     try {
-      const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem('authToken');
 
       await axios.put(`${process.env.REACT_APP_API_URL}/profile/${id}`, body, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -64,7 +61,7 @@ function EditProfile() {
 
   const deleteProfile = async () => {
     try {
-      const storedToken = localStorage.getItem("authToken");
+      const storedToken = localStorage.getItem('authToken');
 
       await axios.delete(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -72,48 +69,45 @@ function EditProfile() {
 
       logout();
 
-      navigate("/");
+      navigate('/');
     } catch (error) {}
   };
 
   return (
-    <div className="profilePage">
-      <h3 className="location">Edit account</h3>
+    <div className="editBody">
+      <div className="editProfilePage">
+        <h3 className="location">Edit Account</h3>
 
-      <div className="profile-favs">
-        <form className="editForm" onSubmit={handleSubmit}>
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            type="text"
-            name="firstName"
-            value={firstName}
-            onChange={handleFirstName}
-          />
+        <div className="profile-favs">
+          <form className="editForm" onSubmit={handleSubmit}>
+            <label htmlFor="firstName">First Name:</label>
+            <br />
+            <input type="text" name="firstName" value={firstName} onChange={handleFirstName} />
+            <br />
 
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            type="text"
-            name="lastName"
-            value={lastName}
-            onChange={handleLastName}
-          />
+            <label htmlFor="lastName">Last Name:</label>
+            <br />
+            <input type="text" name="lastName" value={lastName} onChange={handleLastName} />
+            <br />
+            <label htmlFor="phoneNumber">Phone Number:</label>
+            <br />
+            <input
+              type="text"
+              name="phoneNumber"
+              value={phoneNumber}
+              onChange={handlePhoneNumber}
+            />
+            <br />
 
-          <label htmlFor="phoneNumber">Phone Number:</label>
-          <input
-            type="text"
-            name="phoneNumber"
-            value={phoneNumber}
-            onChange={handlePhoneNumber}
-          />
+            <button className="tag" type="submit">
+              Save changes
+            </button>
+          </form>
 
-          <button className="tag" type="submit">
-            Save changes
+          <button className="tag-delete" onClick={deleteProfile}>
+            Delete Account ⚠️
           </button>
-        </form>
-
-        <button className="tag" onClick={deleteProfile}>
-          Delete Account ⚠️
-        </button>
+        </div>
       </div>
     </div>
   );

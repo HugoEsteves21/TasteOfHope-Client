@@ -90,7 +90,7 @@ function SignupPage() {
             onChange={handlePhoneNumber}
           />
 
-          <fieldset>
+          <fieldset className='fieldset'>
             <div>
               <label htmlFor="userType">User Type*</label>
             </div>
