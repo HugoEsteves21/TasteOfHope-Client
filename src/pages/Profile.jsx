@@ -19,6 +19,7 @@ function Profile() {
       });
 
       setUser(response.data);
+      console.log(response.data)
 
       if (response.data.userType === 'Donor') {
         setDonor(true);
@@ -106,7 +107,7 @@ function Profile() {
                 {user.receivedBaskets.map((baskets) => (
                   <li className="borderBox" key={baskets._id}>
                     <h5><b>Basket type:</b>  {baskets.basketType}</h5>
-                    <h6><b>Collected at:</b>  {baskets.market[0]}</h6>
+                    <h6><b>Collected at:</b>  {baskets.market[0].name}</h6>
                   </li>
                 ))}
               </div>
@@ -115,7 +116,7 @@ function Profile() {
                 {user.receivedUnits.map((units) => (
                   <li className="borderBox" key={units._id}>
                     <h5><b>Basket type:</b>  {units.basketType}</h5>
-                    <h6><b>Collected at:</b>  {units.market[0]}</h6>
+                    <h6><b>Collected at:</b>  {units.market[0].name}</h6>
                   </li>
                 ))}
               </div>
