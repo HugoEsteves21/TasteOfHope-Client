@@ -8,6 +8,16 @@
   margin-bottom: 15px;
 }
 
+#aboutP {
+  padding: 30px;
+}
+
+#aboutP2 {
+  padding: 30px;
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
 header .profile-image {
   width: 150px;
   height: 150px;
